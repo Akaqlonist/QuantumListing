@@ -1,0 +1,126 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - BSKeyboardControls (2.2)
+  - CENotifier (0.1.2):
+    - SDWebImage (~> 3.7)
+  - CircularSpinner (1.2.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - DKImagePickerController (3.5.1):
+    - DKImagePickerController/Camera (= 3.5.1)
+    - DKImagePickerController/ImageManager (= 3.5.1)
+  - DKImagePickerController/Camera (3.5.1)
+  - DKImagePickerController/ImageManager (3.5.1)
+  - ESPullToRefresh (2.6)
+  - Fabric (1.6.11)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FacebookShare (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKShareKit (~> 4.15)
+  - FBSDKCoreKit (4.20.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.20.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.20.0):
+    - FBSDKCoreKit
+  - JPSThumbnailAnnotation (1.0.0)
+  - JVFloatLabeledTextField (1.1.1)
+  - KImageView (0.1.0):
+    - Alamofire
+    - AlamofireImage
+  - NHRangeSlider (0.2)
+  - PagedHorizontalView (2.0.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - TwitterCore (2.8.0):
+    - Fabric
+  - TwitterKit (2.8.1):
+    - TwitterCore (>= 2.8)
+  - UXMPDFKit (0.6.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Alamofire (~> 4.4)
+  - BSKeyboardControls
+  - CENotifier
+  - CircularSpinner
+  - Crashlytics
+  - DKImagePickerController
+  - ESPullToRefresh
+  - Fabric
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
+  - JPSThumbnailAnnotation
+  - JVFloatLabeledTextField
+  - KImageView
+  - NHRangeSlider
+  - PagedHorizontalView
+  - TwitterCore
+  - TwitterKit
+  - UXMPDFKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
+  CENotifier: 66a60c7009bdad1ee9ea016a73a593a5d1a9d7a1
+  CircularSpinner: 80b8ee3eda59b66d20631d4ca7c7c83720931739
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  DKImagePickerController: 8db7e76a88a7a66a893ba30e935cc4c9bb7ed335
+  ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
+  FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
+  FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
+  FBSDKShareKit: 1b91af62a603d67f392bc7fde63bc4a0705dde31
+  JPSThumbnailAnnotation: 4b35e87788d903db3fec294e7ef44136b9f741fb
+  JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
+  KImageView: e1da6bbeb61b06f6f2a85d4c8a22bf5ee4096f4f
+  NHRangeSlider: 2ef13d34bd7d48fcdedcde71c018c093992add7d
+  PagedHorizontalView: f74ca27c2cb8e18f6d78abbfa098ad6fe9dd3498
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
+  UXMPDFKit: 7a905716ba5682d41e80f97c80ffd2110d400abb
+
+PODFILE CHECKSUM: 5b2652ccc64a75d90e90e3449129d7cb2a8c09ca
+
+COCOAPODS: 1.2.0

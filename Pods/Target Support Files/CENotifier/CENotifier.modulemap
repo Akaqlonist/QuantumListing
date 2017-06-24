@@ -1,0 +1,6 @@
+framework module CENotifier {
+  umbrella header "CENotifier-umbrella.h"
+
+  export *
+  module * { export * }
+}

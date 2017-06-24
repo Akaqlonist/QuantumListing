@@ -1,0 +1,6 @@
+framework module NHRangeSlider {
+  umbrella header "NHRangeSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}

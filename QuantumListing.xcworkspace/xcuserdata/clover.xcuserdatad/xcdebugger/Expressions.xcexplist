@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ListingTableViewController.isValidMembership() -&gt; Bool:ListingTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "delegate!.user!.ms_endDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.saveUserInfo() -&gt; ():AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ListingTableViewCell.setImageURL(imageURL : String) -&gt; ():ListingTableViewCell.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

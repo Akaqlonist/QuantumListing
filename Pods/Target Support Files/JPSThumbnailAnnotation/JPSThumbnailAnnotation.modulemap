@@ -1,0 +1,6 @@
+framework module JPSThumbnailAnnotation {
+  umbrella header "JPSThumbnailAnnotation-umbrella.h"
+
+  export *
+  module * { export * }
+}
