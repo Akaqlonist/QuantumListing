@@ -130,16 +130,9 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
             self.ivAvartar.setIndicatorStyle(.gray)
             self.ivAvartar.sd_setImage(with: URL(string: path)!)
 
-            //setImageWithContentsOfURL:[NSURL URLWithString:[_user_info objectForKey:@"profile_pic"]] placeholderImage:nil];
             self.imgProfile.isHidden = true
         }
-//        let about = user_info?["about_me"] as! String
-//        if about.characters.count > 0 {
-//            txtBio.text = about
-//        }
-//        else {
-//            txtBio.text = "No Bio posted"
-//        }
+
         
         //
         buttonEmail.setTitle("  \(user_info?["email"] as! String)", for: .normal)
