@@ -19,7 +19,7 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var heightOfContentView: NSLayoutConstraint!
-    @IBOutlet weak var txtTitle: UITextField!
+    @IBOutlet weak var txtTitle: JVFloatLabeledTextField!
     @IBOutlet weak var vwDetails: UIView!
     @IBOutlet weak var ivListing: UIImageView!
     @IBOutlet weak var lblUploadPhoto: UILabel!
@@ -73,7 +73,6 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         self.actChangePhoto(self)
         
         let color = UIColor.lightGray
-        txtTitle.attributedPlaceholder = NSAttributedString(string: "* Title", attributes: [NSForegroundColorAttributeName: color])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -143,6 +142,7 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         
         ivListing.addDashedBorderLayerWithColor(color: Utilities.registerBorderColor.cgColor)
 
+        txtTitle.addUnderline()
         txtBuildingSize.addUnderline()
         txtFTAvailable.addUnderline()
         txtRentPSF.addUnderline()

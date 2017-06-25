@@ -229,7 +229,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
         print(indexPath.row)
         let dict = listings?[indexPath.row] as? NSDictionary
         dc.listing = dict
-        
+        dc.scrollViewShouldMoveUp = false
         dc.isOwner = (dict?["user_info"] as! NSDictionary)["user_id"] as! String == (UIApplication.shared.delegate as! AppDelegate).user!.user_id ? true : false
         
         self.navigationController?.pushViewController(dc, animated: true)

@@ -104,6 +104,7 @@ class CollectionViewController: UIViewController ,UICollectionViewDelegate, UICo
     
     // UICollectionViewDataSource
     
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (listings?.count)!
     }

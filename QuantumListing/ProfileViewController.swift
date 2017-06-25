@@ -68,6 +68,8 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
         ivAvatar.layer.masksToBounds = true
         ivAvatar.clipsToBounds = true
         
+        //ivAvatar.sd_setImage(with: URL(string: (delegate?.user?.user_photo)!)!)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignKeyboard))
         contentView.addGestureRecognizer(tapGesture)
     }

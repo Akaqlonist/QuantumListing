@@ -72,6 +72,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     var listing : NSDictionary?
     var isOwner : Bool?
     
+    var scrollViewShouldMoveUp : Bool = true
+    
     @IBAction func actScrollRepeat(_ sender: Any) {
         var currentOffset = scrollView.contentOffset
         currentOffset.y += 50;
@@ -456,7 +458,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             }
         }
         
-        
+        if scrollViewShouldMoveUp == true
+        {
+            scrollView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
+        }
 
     }
     
