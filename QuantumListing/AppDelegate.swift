@@ -116,7 +116,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "email": (user?.umail)!,
             "website": (user?.user_blog)!,
             "mobile": (user?.phone_num)!,
-            "full_name": (user?.uname)!
+            "full_name": (user?.uname)!,
+            "membership_type":(user?.ms_type)!,
+            "membership_start":(user?.ms_startDate)!,
+            "membership_end":(user?.ms_endDate)!
         ]
         tc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         

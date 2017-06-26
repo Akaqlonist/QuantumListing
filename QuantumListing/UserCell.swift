@@ -11,6 +11,7 @@ import UIKit
 class UserCell: UITableViewCell {
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var ivPortrait: UIImageView!
+    @IBOutlet weak var lblUserType: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

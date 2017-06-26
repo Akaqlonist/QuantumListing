@@ -91,6 +91,9 @@ class FollowUserTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         
         cell.lblUserName.text = userList[indexPath.row].value(forKey: "username") as? String
+        
+        cell.lblUserType.text = userList[indexPath.row].value(forKey: "type") as? String
+        
         cell.setAvatarImageURL(imageURL: userList[indexPath.row].value(forKey: "profile_pic") as! String)
         
         cell.configureCell()

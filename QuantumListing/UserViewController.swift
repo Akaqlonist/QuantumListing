@@ -33,6 +33,9 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSettings: UIButton!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblUserType: UILabel!
+    @IBOutlet weak var lblMembership: UILabel!
+    @IBOutlet weak var lblMembershipConstraint: NSLayoutConstraint!
     
     var user_info : NSDictionary?
     var is_following: Bool?
@@ -85,7 +88,8 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
             return
         }
         
-        if (user_info?["user_id"] as! String) == delegate?.user?.user_id {
+        if (user_info?["user_id"] as! String) == delegate?.user?.user_id
+        {
             if ((self.navigationController?.viewControllers.count)! > 1) {
                 btnBack.isHidden = false
             }
@@ -105,24 +109,29 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
             buttonEmail.isUserInteractionEnabled = false
             keyboardControls = BSKeyboardControls()
             keyboardControls?.delegate = self
-            //keyboardControls?.fields = [txtBio]
+
             if !(delegate?.user?.isUpdatedProfile)! {
                 lblReminder.isHidden = false
             }
             lblName.text = delegate?.user?.uname
+            
+            lblMembership.text = membershipDescrption()
         }
         else {
             lblTitle.text = "Profile"
             lblName.text = user_info?["username"] as! String?
             btnBack.isHidden = false
             btnUpload.isHidden = true
-            //txtBio.isEditable = false
+
             btnFollow.isHidden = false
             btnAccount.isHidden = true
             btnSettings.isHidden = true
             buttonWebsite.isHidden = false
             buttonEmail.isHidden = false
             buttonPhone.isHidden = false
+            
+            lblMembership.isHidden = true
+            lblMembershipConstraint.constant = 0.0
         }
         let path = user_info?["profile_pic"] as! String
         if path.characters.count > 0 {
@@ -138,6 +147,8 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
         buttonEmail.setTitle("  \(user_info?["email"] as! String)", for: .normal)
         buttonWebsite.setTitle("  \(user_info?["website"] as! String)", for: .normal)
         buttonPhone.setTitle("  \(user_info?["mobile"] as! String)", for: .normal)
+        
+        lblUserType.text = user_info?["type"] as? String
         
         
         //add tap gestures to follower & following label
@@ -521,6 +532,34 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
         self.view.endEditing(true)
         CircularSpinner.hide()
     })
+    }
+    
+    
+    //
+    func membershipDescrption() -> String
+    {
+        let membership_type = user_info?["membership_type"] as! String
+        
+        if membership_type == "Premium"
+        {
+            let end_date = user_info?["membership_end"] as! String
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            
+            let date_start = Date()
+            let date_end = formatter.date(from: end_date)
+            
+            let components = Calendar.current.dateComponents([.day], from: date_start, to: date_end!)
+            let day_remain = components.day!
+            
+            return "\(day_remain) Day Premium"
+        }
+        else
+        {
+            return "Free Membership"
+        }
+        
     }
 
 }

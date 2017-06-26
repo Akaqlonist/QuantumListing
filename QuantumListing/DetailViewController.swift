@@ -68,6 +68,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
 //    @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var buttonScroll: UIButton!
     @IBOutlet weak var collectionGallery: UICollectionView!
+    @IBOutlet weak var buttonImgCount: UIButton!
+    @IBOutlet weak var ivAvatar: UIImageView!
+    @IBOutlet weak var lblBy: UILabel!
+    @IBOutlet weak var lblUserType: UILabel!
+    @IBOutlet weak var btnEmail: UIButton!
+    @IBOutlet weak var btnPhone: UIButton!
+    @IBOutlet weak var btnGlobe: UIButton!
+    @IBOutlet weak var btnSkype: UIButton!
     
     var listing : NSDictionary?
     var isOwner : Bool?
@@ -129,50 +137,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         }
     }
     
-    @IBAction func actEmail(_ sender: Any) {
-        let listing_email = listing_user?.object(forKey: "email") as? String
-        if (listing_email != nil) {
-            UIApplication.shared.open(URL(string: "mailto:\(listing_email!)")!, options: [:], completionHandler: nil)
-        }
-        else {
-            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid email address has been entered.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func actPhone(_ sender: Any) {
-        var listing_phone = listing_user?.object(forKey: "mobile") as? String
-        if (listing_phone != nil) {
-            listing_phone = listing_phone?.replacingOccurrences(of: ":", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
-            
-            let url = URL(string: "tel:\(listing_phone!)")
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        }
-        else {
-            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid phone number has been entered.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func actGlobe(_ sender: Any) {
-        let listing_website = listing_user?.object(forKey: "website") as? String
-        if ((listing_website != nil) && ((listing_website?.characters.count)! > 4)) {
-            let index = listing_website?.index((listing_website?.startIndex)!, offsetBy: 4)
-            if (listing_website?.substring(to: index!) == "http") {
-                UIApplication.shared.open(URL(string: listing_website!)!, options: [:], completionHandler: nil)
-            }
-            else {
-                UIApplication.shared.open(URL(string: "http://\(listing_website!)")!, options: [:], completionHandler: nil)
-            }
-        }
-        else {
-            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid website address has been entered.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
     
     @IBAction func actReport(_ sender: Any) {
         let actionSheet = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -250,13 +214,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         self.present(actionSheet, animated: true, completion:nil)
     }
     
-    @IBAction func actUser(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let userVC = storyboard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
-        userVC.user_info = listing_user
-        self.navigationController?.pushViewController(userVC, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -296,6 +253,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
                         let url = object["url_image"]
                         self.galleryUrls.append(url!)
                     }
+                    
+                    self.buttonImgCount.setTitle(String(result!.count), for: .normal)
                 }
                 else
                 {
@@ -358,7 +317,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             return
         }
         self.kiLabel.text = listing_property?["property_name"] as? String
-        //self.lblBy.text = listing_user?["full_name"] as? String
+        self.lblBy.text = listing_user?["full_name"] as? String
+        self.lblUserType.text = listing_user?["type"] as? String
+        
         if(listing_image != nil) {
             let strURL = listing_image?["property_image"] as? String
 
@@ -366,9 +327,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
 
         lastPoint = CGPoint(x: 0, y: 0)
         
-//        btnEmail.setTitle(listing_user?["email"] as! String?, for: .normal)
-//        btnPhone.setTitle(listing_user?["mobile"] as! String?, for: .normal)
-//        btnGlobe.setTitle(listing_user?["website"] as! String?, for: .normal)
+        btnEmail.setTitle(listing_user?["email"] as! String?, for: .normal)
+        btnPhone.setTitle(listing_user?["mobile"] as! String?, for: .normal)
+        btnGlobe.setTitle(listing_user?["website"] as! String?, for: .normal)
+        btnSkype.setTitle("", for: .normal)
         
         self.txtEditTitle.isHidden = false
         if isOwner! {
@@ -398,12 +360,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
 //        ivAvartar.layer.cornerRadius = ivAvartar.bounds.width / 2.0
 //        ivAvartar.layer.masksToBounds = true
-//        
-//        let strAvartar = listing_user?["profile_pic"] as! String?
-//        if ((strAvartar) != nil) {
-//            ivAvartar.setImageWith(URL(string: strAvartar!)!)
-//            ivPortrait.isHidden = true
-//        }
+//
+        let strAvatar = listing_user?["profile_pic"] as! String?
+        if ((strAvatar) != nil) {
+            ivAvatar.setImageWith(URL(string: strAvatar!)!)
+        }
 //        if(listing?["time_elapsed"] != nil)
 //        {
 //            lblDate.text = String(format: "%d days", abs((listing?["time_elapsed"] as! NSString).integerValue))
@@ -740,7 +701,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         self.favorite_property()
     }
 
-    // UITextField Delegate
+    // MARK : - TextField Delegate Methods
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
@@ -795,7 +756,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         hasChanges = true
     }
     
+    // MARK : - User taps on gallery count btn
     
+    @IBAction func actImgCount(_ sender: Any) {
+        
+        if galleryUrls.count > 0
+        {
+        
+            let galleryVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GalleryViewController") as! GalleryViewController
+            galleryVC.property_id = self.listing_property?["property_id"] as! String
+        
+            self.navigationController?.pushViewController(galleryVC, animated: true)
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -805,5 +779,68 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK : - Contact Form
+    
+    @IBAction func actUserAvatar(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let userVC = storyboard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
+        userVC.user_info = listing_user
+        self.navigationController?.pushViewController(userVC, animated: true)
+    }
+    
+    
+    @IBAction func actEmail(_ sender: Any) {
+        
+        let listing_email = listing_user?.object(forKey: "email") as? String
+        if (listing_email != nil) {
+            UIApplication.shared.open(URL(string: "mailto:\(listing_email!)")!, options: [:], completionHandler: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid email address has been entered.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    @IBAction func actPhone(_ sender: Any) {
+        
+        var listing_phone = listing_user?.object(forKey: "mobile") as? String
+        if (listing_phone != nil) {
+            listing_phone = listing_phone?.replacingOccurrences(of: ":", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
+            
+            let url = URL(string: "tel:\(listing_phone!)")
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid phone number has been entered.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func actSkype(_ sender: Any) {
+        
+        //TODO
+    }
+    
+    @IBAction func actWebsite(_ sender: Any) {
+        
+        let listing_website = listing_user?.object(forKey: "website") as? String
+        if ((listing_website != nil) && ((listing_website?.characters.count)! > 4)) {
+            let index = listing_website?.index((listing_website?.startIndex)!, offsetBy: 4)
+            if (listing_website?.substring(to: index!) == "http") {
+                UIApplication.shared.open(URL(string: listing_website!)!, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.open(URL(string: "http://\(listing_website!)")!, options: [:], completionHandler: nil)
+            }
+        }
+        else {
+            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no valid website address has been entered.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+    }
 
 }
