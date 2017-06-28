@@ -785,7 +785,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     @IBAction func actUserAvatar(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let userVC = storyboard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
-        userVC.user_info = listing_user
+        userVC.user_info = NSMutableDictionary(dictionary: listing_user!)
         self.navigationController?.pushViewController(userVC, animated: true)
     }
     

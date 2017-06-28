@@ -74,6 +74,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func shouldAutoLogin() -> Bool {
+        
+        let defaults = UserDefaults.standard
+        
+        guard defaults.value(forKey: "autologin") != nil else
+        {
+            return false
+        }
+        
+        return defaults.bool(forKey: "autologin")
+    }
+    
+    func saveAutoLoginInfo(autologin : Bool)
+    {
+        let defaults = UserDefaults.standard
+        
+        defaults.set(autologin, forKey: "autologin")
+    }
+    
     func loadUserInfo() {
         let defaults = UserDefaults.standard
         
@@ -180,10 +199,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         user = User()
         self.loadUserInfo()
-        if user?.user_id == nil || (user?.user_id == "") {
+        if user?.user_id == nil || (user?.user_id == "") || shouldAutoLogin() == false {
             self.configureLoginNav()
         }
         else {
+            
             self.configureRootNav()
         }
         

@@ -45,6 +45,10 @@ class LoginViewController: UIViewController {
     }
     
     func loginUser() {
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.saveAutoLoginInfo(autologin: cbKeepSignin.isSelected)
+        
         let parameters: NSMutableDictionary = ["email": self.txtEmail.text!, "password": self.txtPass.text!]
         
         CircularSpinner.show("Log In", animated: true, type: .indeterminate, showDismissButton: false)
@@ -55,7 +59,7 @@ class LoginViewController: UIViewController {
                 print(responseJson)
                 
                 if ((responseJson["status"] as! String) == "true") {
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    //let delegate = UIApplication.shared.delegate as! AppDelegate
                     let profile = responseJson["profile"] as? [String:Any]
                     if (profile != nil) {
                         delegate.user?.user_blog = (profile?["website"] as? String)!

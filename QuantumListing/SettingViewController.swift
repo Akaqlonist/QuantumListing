@@ -51,14 +51,22 @@ class SettingViewController: UITableViewController, MFMailComposeViewControllerD
             self.navigationController?.pushViewController(tipsViewController, animated: true)
             break
         case 1:
+
+            if MFMailComposeViewController.canSendMail() == true
+            {
+                let mc = MFMailComposeViewController()
+                mc.mailComposeDelegate = self
+                mc.setSubject("Try This New App I'm Using")
+                mc.setMessageBody("Hi,<br/>Try QuantumListing, a new app I've downloaded. It is a great new way to search, save and share listings. <br/>Get it by clicking the link:<br/> <a href=\"https://itunes.apple.com/us/app/quantumlisting/id1018441288?ls=1&mt=8\">QuantumListing - App Store</a>\n <br/><a href=\"https://play.google.com/store/apps/details?id=com.quantumlisting.quantumlisting&hl=en\">QuantumListing - Google Play Store</a>\n<br/>Or You can use the website - <a href=\"https://quantumlisting.com\">QuantumListing.com</a>\n", isHTML: true)
+                mc.setToRecipients(nil)
+                
+                self.present(mc, animated: true, completion: nil)
+            }
+            else
+            {
+                
+            }
             
-            let mc = MFMailComposeViewController()
-            mc.mailComposeDelegate = self
-            mc.setSubject("Try This New App I'm Using")
-            mc.setMessageBody("Hi,<br/>Try QuantumListing, a new app I've downloaded. It is a great new way to search, save and share listings. <br/>Get it by clicking the link:<br/> <a href=\"https://itunes.apple.com/us/app/quantumlisting/id1018441288?ls=1&mt=8\">QuantumListing - App Store</a>\n <br/><a href=\"https://play.google.com/store/apps/details?id=com.quantumlisting.quantumlisting&hl=en\">QuantumListing - Google Play Store</a>\n<br/>Or You can use the website - <a href=\"https://quantumlisting.com\">QuantumListing.com</a>\n", isHTML: true)
-            mc.setToRecipients(nil)
-            
-            self.present(mc, animated: true, completion: nil)
             break
         case 2:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -68,13 +76,19 @@ class SettingViewController: UITableViewController, MFMailComposeViewControllerD
             break
         case 3:
 
-            let mc = MFMailComposeViewController()
-            mc.mailComposeDelegate = self
-            mc.setSubject("Contact Support")
-            mc.setToRecipients(["support@quantumlisting.com"])
-            mc.setMessageBody("", isHTML: false)
-            
-            self.present(mc, animated: true, completion: nil)
+            if MFMailComposeViewController.canSendMail() == true
+            {
+                let mc = MFMailComposeViewController()
+                mc.mailComposeDelegate = self
+                mc.setSubject("Contact Support")
+                mc.setToRecipients(["support@quantumlisting.com"])
+                mc.setMessageBody("", isHTML: false)
+                self.present(mc, animated: true, completion: nil)
+            }
+            else
+            {
+                
+            }
 
             break
         case 4:

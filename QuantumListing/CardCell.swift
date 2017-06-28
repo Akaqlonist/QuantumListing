@@ -43,10 +43,13 @@ class CardCell: UITableViewCell {
     @IBAction func actReport(_ sender: Any) {
         self.delegate?.didPressedActionButton(self.index!)
     }
+    
     @IBAction func onAddress(_ sender: Any) {
-        if self.delegate != nil {
-            self.delegate?.didPressedAddressIndex(self.index!)
-        }
+        self.delegate?.didPressedAddressIndex(self.index!)
+    }
+
+    @IBAction func actFavorite(_ sender: Any) {
+        self.delegate?.didPressedLikeButton(self.index!)
     }
 
     override func awakeFromNib() {
@@ -87,9 +90,12 @@ class CardCell: UITableViewCell {
         bgView.layer.borderColor = Utilities.borderGrayColor.cgColor
         
         bgView.layer.shadowColor = UIColor.gray.cgColor
-        bgView.layer.shadowOpacity = 0.6
-        bgView.layer.shadowRadius = 2.0
-        bgView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        bgView.layer.shadowOpacity = 0.3
+        bgView.layer.shadowRadius = 4.0
+        bgView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        bgView.clipsToBounds = true
+        bgView.layer.cornerRadius = 4
         
         self.selectionStyle = .none
     }

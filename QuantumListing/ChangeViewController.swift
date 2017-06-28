@@ -229,7 +229,7 @@ class ChangeViewController: UIViewController, ListingCellDelegate, UITableViewDe
         let listing = listings?.object(at: index) as! NSDictionary
         let actionSheet = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
         let albumAction = UIAlertAction(title: "Save to album", style: .default) { (alert: UIAlertAction!) -> Void in
-            let cell = self.myTableView.cellForRow(at: IndexPath(row: index, section: 0)) as! ListingTableViewCell
+            let cell = self.myTableView.cellForRow(at: IndexPath(row: index, section: 0)) as! CardCell
             UIImageWriteToSavedPhotosAlbum(cell.ivListing.image!, nil, nil, nil)
         }
         

@@ -37,7 +37,7 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
     @IBOutlet weak var lblMembership: UILabel!
     @IBOutlet weak var lblMembershipConstraint: NSLayoutConstraint!
     
-    var user_info : NSDictionary?
+    var user_info : NSMutableDictionary?
     var is_following: Bool?
     var listing: NSMutableArray?
     var delegate: AppDelegate?
@@ -301,6 +301,7 @@ class UserViewController: UIViewController ,BSKeyboardControlsDelegate, UITextVi
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         vc.delegate = self.delegate
+        vc.userVC = self
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

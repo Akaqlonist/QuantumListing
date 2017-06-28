@@ -107,6 +107,7 @@ class ViewController: UIViewController {
                                 transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                                 delegate.window?.layer.add(transition, forKey: "transition")
                                 delegate.saveUserInfo()
+                                delegate.saveAutoLoginInfo(autologin: true)
                                 
                                 CircularSpinner.hide()
                                 
@@ -206,6 +207,7 @@ class ViewController: UIViewController {
                                 transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                                 delegate.window?.layer.add(transition, forKey: "transition")
                                 delegate.saveUserInfo()
+                                delegate.saveAutoLoginInfo(autologin: true)
                                 
                                 CircularSpinner.hide()
                                 

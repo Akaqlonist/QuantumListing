@@ -107,7 +107,7 @@ class FollowUserTableViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let userVC = storyboard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
-        userVC.user_info = userList[indexPath.row] as NSDictionary
+        userVC.user_info = NSMutableDictionary(dictionary : userList[indexPath.row])
         self.navigationController?.pushViewController(userVC, animated: true)
     }
 }

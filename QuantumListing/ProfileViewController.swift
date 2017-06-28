@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
     
     var delegate : AppDelegate?
     var activeField : UITextField?
+    var userVC : UserViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,6 +216,8 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
                 {
                     self.delegate?.user?.user_photo = responseJson.value(forKey: "path") as! String
                     self.delegate?.saveUserInfo()
+                    
+                    self.userVC?.user_info?["profile_pic"] = responseJson.value(forKey: "path") as! String
                 }
                 
             }catch{
@@ -258,6 +261,11 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
             delegate?.user?.isUpdatedProfile = true
             
             delegate?.saveUserInfo()
+            
+            
+            self.userVC?.user_info?["email"] = self.txtEmail.text!
+            self.userVC?.user_info?["mobile"] = self.txtPhone.text!
+            self.userVC?.user_info?["website"] = self.txtBlog.text!
             
             do {
                 _ = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary

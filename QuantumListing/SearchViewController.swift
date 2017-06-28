@@ -20,6 +20,17 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
+    // Card view items
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var btnLocation: UIButton!
+    @IBOutlet weak var ivListing: UIImageView!
+    @IBOutlet weak var lblSqft: UILabel!
+    @IBOutlet weak var lblAssetType: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblFor: UILabel!
+    
+    
     var is_trend : Bool?
     var currentPlacemark : CLPlacemark?
     var locationManager : CLLocationManager?
@@ -32,6 +43,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     var raw_searches : NSMutableArray?  = NSMutableArray()
     var delegate : AppDelegate?
     var listing_list : NSMutableArray? = NSMutableArray()
+    var currentIndex : Int = 0
 
     
     override func viewDidLoad() {
@@ -45,6 +57,26 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         annotations = NSMutableArray()
         geocodingResults = NSMutableArray()
         geocoder = CLGeocoder()
+        
+        configUI()
+    }
+    
+    func configUI()
+    {
+        cardView.layer.borderWidth = 1
+        cardView.layer.borderColor = Utilities.borderGrayColor.cgColor
+        
+        cardView.layer.shadowColor = UIColor.gray.cgColor
+        cardView.layer.shadowOpacity = 0.3
+        cardView.layer.shadowRadius = 4.0
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        //cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = 4
+        cardView.isHidden = true
+        
+        ivListing.layer.borderColor = Utilities.borderGrayColor.cgColor
+        ivListing.layer.borderWidth = 1
     }
 
     override func viewDidLayoutSubviews() {
@@ -69,6 +101,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                 let viewRegion = MKCoordinateRegionMakeWithDistance(nowLocation, 15000, 15000)
                 let adjustedRegion = self.mapView.regionThatFits(viewRegion)
                 self.mapView.setRegion(adjustedRegion, animated: false)
+                
                 self.reverseGeocodeCoordinate(nowLocation)
             }
             else {
@@ -323,6 +356,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         myTableView.isHidden = false
+        cardView.isHidden = true
         myTableView.reloadData()
         searchBar.text = ""
     }
@@ -474,6 +508,8 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                 
                 self.listing_list = NSMutableArray(array: data)
                 
+                var dirtyListing : [Any] = [Any]()
+                
                 for listing1:Any in self.listing_list! {
     
                     let listing = listing1 as! NSDictionary
@@ -481,6 +517,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     if listing["user_info"] as? NSDictionary == nil  //wrong user info , ignore 
                         || listing["property_info"] as? NSDictionary == nil  //wrong property info , ignore
                     {
+                        dirtyListing.append(listing1)
                         continue
                     }
                     
@@ -513,6 +550,11 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     self.annotations?.add(JPSThumbnailAnnotation(thumbnail: listingThumbnail))
                 }
                 
+                for dirtyItem in dirtyListing
+                {
+                    self.listing_list?.remove(dirtyItem)
+                }
+                
                 let groupedPins = self.groupAnnotationsByLocationValue(self.annotations! as NSArray as! [MKAnnotation])
                 
                 
@@ -525,6 +567,11 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     self.mapView.addAnnotations(newGroup)
                 }
                 
+                if (self.listing_list?.count)! > 0
+                {
+                    self.cardView.isHidden = false
+                    self.setupCardView(index : 0)
+                }
                 CircularSpinner.hide()
                 break;
             case .failure(let error):
@@ -669,6 +716,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         btnMap.isSelected = false
         myTableView.isHidden = false
         mapView.isHidden = true
+        cardView.isHidden = true
         self.getTrends()
         
         //myTableView.reloadData()
@@ -683,6 +731,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         btnMap.isSelected = true
         myTableView.isHidden = true
         mapView.isHidden = false
+        cardView.isHidden = false
     }
     
     // Geocoding Methods
@@ -809,5 +858,117 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setupCardView(index : Int)
+    {
+        if index >= (self.listing_list?.count)!
+        {
+            currentIndex = 0
+        }
+        else if index < 0
+        {
+            currentIndex = self.listing_list!.count - 1
+        }
+        else
+        {
+            currentIndex = index
+        }
+        
+        let listing = self.listing_list?[currentIndex] as! NSDictionary
+        let property_info = listing["property_info"] as! [String : String]
+        let property_image = (listing["property_image"] as! NSArray)[0] as! [String : String]
+        
+        lblTitle.text = property_info["property_name"]
+        btnLocation.setTitle(property_info["address"], for: .normal)
+        lblSqft.text = property_info["sqft"]
+        lblFor.text = property_info["property_for"]
+        lblAssetType.text = property_info["property_type"]
+        lblPrice.text = property_info["amount"]
+        
+        ivListing.setIndicatorStyle(.gray)
+        ivListing.setShowActivityIndicator(true)
+        ivListing.sd_setImage(with: URL(string: property_image["property_image"]!)!)
+        
+        //move map center
+        let latitude = Double(property_info["latitude"]!)
+        let longitude = Double(property_info["lognitude"]!)
+        let nowLocation = CLLocationCoordinate2DMake(CLLocationDegrees(latitude!), CLLocationDegrees(longitude!))
+        self.mapView.setCenter(nowLocation, animated: true)
+    }
 
+    // MARK: - Card View Actions
+    @IBAction func actLocation(_ sender: Any) {
+        let dict = listing_list?[currentIndex] as! NSDictionary
+        let listing_property = dict["property_info"] as! NSDictionary
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        
+        let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((listing_property["latitude"] as! NSString).doubleValue), CLLocationDegrees((listing_property["lognitude"] as! NSString).doubleValue))
+        if (coordinate.latitude != 0 && coordinate.longitude != 0) {
+            mapVC.selectedLocation = coordinate
+            self.navigationController?.pushViewController(mapVC, animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    @IBAction func actFavorite(_ sender: Any) {
+        let listing = listing_list?[currentIndex] as! NSDictionary
+        let listing_property = listing["property_info"] as! NSDictionary
+        
+        let parameters: NSMutableDictionary = ["property_id": listing_property["property_id"] as! String, "user_id": (delegate?.user?.user_id)!]
+        
+        CircularSpinner.show("", animated: true, type: .indeterminate, showDismissButton: false)
+        ConnectionManager.sharedClient().post("\(BASE_URL)?apiEntry=favorite_property", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
+            print("JSON: \(responseObject)")
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! [String:Any]
+                print(responseJson)
+                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }catch{
+                
+            }
+            CircularSpinner.hide()
+            
+        }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
+            print("Error: \(String(describing: error))")
+            
+            let alert = UIAlertController(title: "QuantumListing", message: "Connection failed with reason : \(error.debugDescription)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            self.view.endEditing(true)
+            CircularSpinner.hide()
+        })
+
+    }
+    @IBAction func actPrev(_ sender: Any) {
+        currentIndex = currentIndex - 1
+        setupCardView(index: currentIndex)
+    }
+    @IBAction func actNext(_ sender: Any) {
+        currentIndex = currentIndex + 1
+        setupCardView(index: currentIndex)
+    }
+    @IBAction func actListing(_ sender: Any) {
+
+        let listing = self.listing_list?[currentIndex] as! NSDictionary
+        let user_info = listing["user_info"] as! NSDictionary
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let dc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+            
+        dc.listing = listing
+        dc.isOwner = user_info["user_id"] as! String == (UIApplication.shared.delegate as! AppDelegate).user!.user_id ? true : false
+            
+        self.navigationController?.pushViewController(dc, animated: true)
+    }
+    
+    
+    
+    
 }
