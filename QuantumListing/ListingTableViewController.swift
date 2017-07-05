@@ -75,7 +75,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
     }
     
     func getFeed() {
-        let parameters: NSMutableDictionary = ["property_type": "recent", "index": String.init(format: "%d", currentIndex!)]
+        let parameters: NSMutableDictionary = ["user_id": (delegate?.user?.user_id)!, "property_type": "recent", "index": String.init(format: "%d", currentIndex!)]
         
         CircularSpinner.show("Loading", animated: true, type: .indeterminate, showDismissButton: false, delegate: nil)
         
@@ -89,7 +89,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
                     let info = (object as! NSDictionary)
                     if info["user_info"] is NSDictionary && info["property_info"] is NSDictionary
                     {
-                        self.listings?.add(object)
+                        self.listings?.add(NSMutableDictionary(dictionary: object as! NSDictionary))
                     }
                 }
 
@@ -212,6 +212,15 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
         
         cell.buttonAddress.setTitle("   \(listing_property["address"] as! String)", for: UIControlState.normal)
         
+        if listing["isFavorite"] as! Int == 0
+        {
+            cell.btnFavorite.setImage(UIImage(named: "flag@4x"), for: .normal)
+        }
+        else
+        {
+            cell.btnFavorite.setImage(UIImage(named: "flag_fill@4x"), for: .normal)
+        }
+        
         cell.delegate = self
         cell.index = indexPath.row
         cell.configureCell()
@@ -239,7 +248,8 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
     
     func didPressedLikeButton(_ index: Int) {
         selectedDict = listings?[index] as?  NSDictionary
-        favorite_property()
+        favorite_property(index: index)
+        
     }
     
     func didPressedAddressIndex(_ index: Int) {
@@ -265,31 +275,31 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
         selectedDict = listings?.object(at: index) as? NSDictionary
         let listing_property = selectedDict?["property_info"] as! NSDictionary
         let actionSheet = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
-        let viewAction = UIAlertAction(title: "View on Map", style: .default) { (alert: UIAlertAction!) -> Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-            
-            let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((listing_property["latitude"] as! NSString).doubleValue), CLLocationDegrees((listing_property["lognitude"] as! NSString).doubleValue))
-            if (coordinate.latitude != 0 && coordinate.longitude != 0) {
-                mapVC.selectedLocation = coordinate
-                self.navigationController?.pushViewController(mapVC, animated: true)
-            }
-            else {
-                let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        
-        let galleryAction = UIAlertAction(title: "Open Gallery", style: .default){
-            (alert : UIAlertAction!) -> Void in
-            
-            let galleryVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GalleryViewController") as! GalleryViewController
-            galleryVC.property_id = listing_property["property_id"] as! String
-            
-            self.navigationController?.pushViewController(galleryVC, animated: true)
-            
-        }
+//        let viewAction = UIAlertAction(title: "View on Map", style: .default) { (alert: UIAlertAction!) -> Void in
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//            
+//            let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((listing_property["latitude"] as! NSString).doubleValue), CLLocationDegrees((listing_property["lognitude"] as! NSString).doubleValue))
+//            if (coordinate.latitude != 0 && coordinate.longitude != 0) {
+//                mapVC.selectedLocation = coordinate
+//                self.navigationController?.pushViewController(mapVC, animated: true)
+//            }
+//            else {
+//                let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
+//        
+//        let galleryAction = UIAlertAction(title: "Open Gallery", style: .default){
+//            (alert : UIAlertAction!) -> Void in
+//            
+//            let galleryVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GalleryViewController") as! GalleryViewController
+//            galleryVC.property_id = listing_property["property_id"] as! String
+//            
+//            self.navigationController?.pushViewController(galleryVC, animated: true)
+//            
+//        }
         
         let attachAction = UIAlertAction(title: "Open Attachment", style: .default) { (alert: UIAlertAction!) -> Void in
             let attachment = listing_property["document"] as! NSString
@@ -304,25 +314,25 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
             }
         }
         
-        let favAction = UIAlertAction(title: "Save to Favorites", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
-            //let defaults = UserDefaults.standard
-            
-            if self.delegate?.products?.count == 0 {
-                let alert = UIAlertController(title: "QuantumListing", message: "Error on our side, try again later", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            if self.isValidMembership() {
-                self.productPurchased()
-            }
-            else {
-                let alert = UIAlertController(title: "QuantumListing", message: "Please upgrade your membership to access all Premium features of QuantumListing", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-        }
+//        let favAction = UIAlertAction(title: "Save to Favorites", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
+//            //let defaults = UserDefaults.standard
+//            
+//            if self.delegate?.products?.count == 0 {
+//                let alert = UIAlertController(title: "QuantumListing", message: "Error on our side, try again later", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//                return
+//            }
+//            if self.isValidMembership() {
+//                self.productPurchased()
+//            }
+//            else {
+//                let alert = UIAlertController(title: "QuantumListing", message: "Please upgrade your membership to access all Premium features of QuantumListing", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//                
+//            }
+//        }
         
         let flagAction = UIAlertAction(title: "Flag As Inappropriate", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
             self.reportProperty(listing_property["property_id"] as! String)
@@ -332,10 +342,10 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
             
         }
         
-        actionSheet.addAction(viewAction)
-        actionSheet.addAction(galleryAction)
+        //actionSheet.addAction(viewAction)
+        //actionSheet.addAction(galleryAction)
         actionSheet.addAction(attachAction)
-        actionSheet.addAction(favAction)
+        //actionSheet.addAction(favAction)
         actionSheet.addAction(flagAction)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion:nil)
@@ -479,7 +489,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
         })
     }
     
-    func favorite_property() {
+    func favorite_property(index : Int) {
         if (selectedDict == nil) {
             return;
         }
@@ -493,9 +503,13 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! [String:Any]
                 print(responseJson)
-                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                let status = responseJson["status"] as! Int
+                
+                (self.listings?[index] as! NSMutableDictionary)["isFavorite"] = status
+                self.tableView.reloadData()
+//                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
             }catch{
                 
             }
@@ -515,9 +529,9 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
     
     // IAP Management
     
-    func productPurchased() {
-        self.favorite_property()
-    }
+//    func productPurchased() {
+//        self.favorite_property()
+//    }
     /*
     // MARK: - Navigation
 

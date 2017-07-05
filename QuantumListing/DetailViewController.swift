@@ -141,25 +141,25 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     @IBAction func actReport(_ sender: Any) {
         let actionSheet = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let viewAction = UIAlertAction(title: "View on Map", style: .default) { (alert: UIAlertAction!) -> Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-            
-            let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((self.listing_property?["latitude"] as! NSString).doubleValue), CLLocationDegrees((self.listing_property?["lognitude"] as! NSString).doubleValue))
-            if (coordinate.latitude != 0 && coordinate.longitude != 0) {
-                mapVC.selectedLocation = coordinate
-                mapVC.listing_email = self.listing_user?.object(forKey: "email") as? String
-                mapVC.listing_phone = self.listing_user?.object(forKey: "mobile") as? String
-                mapVC.listing_website = self.listing_user?.object(forKey: "website") as? String
-                
-                self.navigationController?.pushViewController(mapVC, animated: true)
-            }
-            else {
-                let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+//        let viewAction = UIAlertAction(title: "View on Map", style: .default) { (alert: UIAlertAction!) -> Void in
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//            
+//            let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((self.listing_property?["latitude"] as! NSString).doubleValue), CLLocationDegrees((self.listing_property?["lognitude"] as! NSString).doubleValue))
+//            if (coordinate.latitude != 0 && coordinate.longitude != 0) {
+//                mapVC.selectedLocation = coordinate
+//                mapVC.listing_email = self.listing_user?.object(forKey: "email") as? String
+//                mapVC.listing_phone = self.listing_user?.object(forKey: "mobile") as? String
+//                mapVC.listing_website = self.listing_user?.object(forKey: "website") as? String
+//                
+//                self.navigationController?.pushViewController(mapVC, animated: true)
+//            }
+//            else {
+//                let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
         
         let galleryAction = UIAlertAction(title: "Open Gallery", style: .default){
             (alert : UIAlertAction!) -> Void in
@@ -205,7 +205,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             
         }
         
-        actionSheet.addAction(viewAction)
+        //actionSheet.addAction(viewAction)
         actionSheet.addAction(galleryAction)
         actionSheet.addAction(attachAction)
         actionSheet.addAction(favAction)
@@ -675,9 +675,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! [String:Any]
                 print(responseJson)
-                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
             }catch{
                 
             }

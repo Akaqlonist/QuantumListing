@@ -2255,7 +2255,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                         <constraint firstAttribute="trailing" secondItem="XfX-dC-5Ih" secondAttribute="trailing" id="qvy-ZG-iwK"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caw-ri-1H0">
+                                                                <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caw-ri-1H0">
                                                                     <rect key="frame" x="318" y="12.666666666666666" width="16" height="21"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <state key="normal" image="flag@4x">
@@ -2478,7 +2478,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cSD-oo-Sw4">
                                 <rect key="frame" x="20" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="btn_pdf.png"/>
+                                <state key="normal" title="Button" image="pdf_flat"/>
                                 <connections>
                                     <action selector="actStore:" destination="cgE-Es-e8S" eventType="touchUpInside" id="KRG-Md-NV7"/>
                                 </connections>
@@ -2695,7 +2695,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                     <rect key="frame" x="8" y="29" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BnC-cW-u0r" id="uuW-WT-L6l">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </tableViewCellContentView>
                                 </tableViewCell>
@@ -3745,6 +3745,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 <connections>
                                     <outlet property="bgView" destination="g9j-Rg-jYC" id="BZm-8a-KgN"/>
                                     <outlet property="btnAction" destination="UUI-4w-eAH" id="xGS-SW-odX"/>
+                                    <outlet property="btnFavorite" destination="Kfi-tX-k5L" id="KS0-3X-bBg"/>
                                     <outlet property="buttonAddress" destination="77s-5h-x7U" id="PP3-xe-mgt"/>
                                     <outlet property="ivAvartar" destination="Twz-J1-unu" id="gjM-NT-PGd"/>
                                     <outlet property="ivListing" destination="uPq-Qb-tNJ" id="NKa-Tb-yi6"/>
@@ -3931,7 +3932,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="actShare:" destination="xpu-9l-vZb" eventType="touchUpInside" id="070-Ic-Rgw"/>
+                                                    <action selector="actReport:" destination="xpu-9l-vZb" eventType="touchUpInside" id="Xqb-bi-Egp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPU-A0-1Fh">
@@ -3948,7 +3949,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="actReport:" destination="xpu-9l-vZb" eventType="touchUpInside" id="QYL-9c-mnn"/>
+                                                    <action selector="actShare:" destination="xpu-9l-vZb" eventType="touchUpInside" id="M4m-4i-0zY"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Property Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOz-8O-l13">
@@ -4895,6 +4896,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnFavorite" destination="ddQ-gs-pSf" id="FQA-Pg-oYY"/>
                         <outlet property="btnListings" destination="91k-bW-rLC" id="pRb-r1-LAD"/>
                         <outlet property="btnLocation" destination="WG9-Ei-eMw" id="br0-iG-D6B"/>
                         <outlet property="btnMap" destination="a5j-vf-LfT" id="nrJ-I2-fen"/>
@@ -5133,7 +5135,6 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
         <image name="bottom_strip.png" width="320" height="43"/>
         <image name="btn_collections.png" width="44" height="44"/>
         <image name="btn_fb.png" width="70" height="70"/>
-        <image name="btn_pdf.png" width="26" height="32"/>
         <image name="btn_tw.png" width="70" height="70"/>
         <image name="calendar_icon@4x" width="21" height="24"/>
         <image name="call_contact_icon@4x" width="20" height="20"/>
@@ -5165,6 +5166,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
         <image name="my_top_header.png" width="320" height="46"/>
         <image name="note_icon@4x" width="18" height="18"/>
         <image name="password_@4x" width="14" height="18"/>
+        <image name="pdf_flat" width="66" height="84"/>
         <image name="photo_placeholder@4x" width="173" height="173"/>
         <image name="register_agree_holder.png" width="11" height="11"/>
         <image name="register_agree_icon.png" width="10" height="10"/>

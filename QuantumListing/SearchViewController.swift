@@ -29,6 +29,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var lblAssetType: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblFor: UILabel!
+    @IBOutlet weak var btnFavorite: UIButton!
     
     
     var is_trend : Bool?
@@ -555,6 +556,10 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     self.listing_list?.remove(dirtyItem)
                 }
                 
+                self.raw_searches = NSMutableArray(array: self.listing_list!)
+                
+                self.applyFilter()
+                
                 let groupedPins = self.groupAnnotationsByLocationValue(self.annotations! as NSArray as! [MKAnnotation])
                 
                 
@@ -927,9 +932,19 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! [String:Any]
                 print(responseJson)
-                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                let status = responseJson["status"] as! Int
+                
+                if status == 0
+                {
+                    self.btnFavorite.setImage(UIImage(named: "flag@4x"), for: .normal)
+                }
+                else
+                {
+                    self.btnFavorite.setImage(UIImage(named: "flag_fill@4x"), for: .normal)
+                }
+//                let alert = UIAlertController(title: "QuantumListing", message: "You successfully added the Listing to your favorites", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
             }catch{
                 
             }

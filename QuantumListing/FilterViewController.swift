@@ -186,10 +186,10 @@ class FilterViewController: UIViewController ,UITextFieldDelegate, LCItemPickerD
     
     @IBAction func actApply(_ sender: Any) {
         
-        delegate?.user?.uf_priceStart = String(describing: slidePrice?.lowerValue)
-        delegate?.user?.uf_priceEnd = String(describing: slidePrice?.upperValue)
-        delegate?.user?.uf_distanceStart = String(describing: slideDistance?.lowerValue)
-        delegate?.user?.uf_distanceEnd = String(describing: slideDistance?.upperValue)
+        delegate?.user?.uf_priceStart = String(describing: slidePrice!.lowerValue)
+        delegate?.user?.uf_priceEnd = String(describing: slidePrice!.upperValue)
+        delegate?.user?.uf_distanceStart = String(describing: slideDistance!.lowerValue)
+        delegate?.user?.uf_distanceEnd = String(describing: slideDistance!.upperValue)
         
         /*
         delegate?.user?.uf_priceStart = slidePrice?.lowerValue as! String

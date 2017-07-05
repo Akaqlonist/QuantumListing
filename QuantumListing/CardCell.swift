@@ -34,6 +34,7 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var lblSQFT: UILabel!
     @IBOutlet weak var lblAssetType: UILabel!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var btnFavorite: UIButton!
     
 
     @IBAction func actUser(_ sender: Any) {
