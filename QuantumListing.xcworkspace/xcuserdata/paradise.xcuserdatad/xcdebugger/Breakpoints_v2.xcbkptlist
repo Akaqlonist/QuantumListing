@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuantumListing/DetailViewController.swift"
-            timestampString = "520193749.660438"
+            timestampString = "520980210.093459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "configureUserInterface()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuantumListing/DetailViewController.swift"
-            timestampString = "520193729.324696"
+            timestampString = "520980210.093459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "configureUserInterface()"
             landmarkType = "7">
          </BreakpointContent>

@@ -77,6 +77,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     @IBOutlet weak var btnGlobe: UIButton!
     @IBOutlet weak var btnSkype: UIButton!
     
+    @IBOutlet weak var viewWatchVideo: UIView!
+    @IBOutlet weak var collectionThumbnail: UICollectionView!
+    
+    
+    
     var listing : NSDictionary?
     var isOwner : Bool?
     
@@ -264,6 +269,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
                 print(self.galleryUrls)
                 
                 self.collectionGallery.reloadData()
+                self.collectionThumbnail.reloadData()
             }catch{
                 
             }
@@ -284,17 +290,36 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath)
+        if collectionView == collectionGallery
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath)
         
-        let imageView = cell.viewWithTag(1) as! UIImageView
-        imageView.setIndicatorStyle(.gray)
-        imageView.setShowActivityIndicator(true)
-        imageView.sd_setImage(with: URL(string : galleryUrls[indexPath.row])!)
+            let imageView = cell.viewWithTag(1) as! UIImageView
+            imageView.setIndicatorStyle(.gray)
+            imageView.setShowActivityIndicator(true)
+            imageView.sd_setImage(with: URL(string : galleryUrls[indexPath.row])!)
         
         //imageView.ImageFromURL(url: galleryUrls[indexPath.row], indicatorColor: .gray, errorImage: UIImage(), imageView: imageView)
         
-        return cell
+            return cell
+        }
+        else
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"ThumbnailCell", for: indexPath)
+            
+            let imageView = cell.viewWithTag(1) as! UIImageView
+            imageView.setIndicatorStyle(.gray)
+            imageView.setShowActivityIndicator(true)
+            imageView.sd_setImage(with: URL(string : galleryUrls[indexPath.row])!)
+            
+            //imageView.ImageFromURL(url: galleryUrls[indexPath.row], indicatorColor: .gray, errorImage: UIImage(), imageView: imageView)
+            
+            return cell
+        }
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
 //        vwPortrait.layer.cornerRadius = vwPortrait.bounds.width/2.0
@@ -418,6 +443,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
                 subView.layer.borderColor = Utilities.borderGrayColor.cgColor
             }
         }
+        
+        viewWatchVideo.layer.borderWidth = 0.5
+        viewWatchVideo.layer.borderColor = Utilities.borderGrayColor.cgColor
         
         if scrollViewShouldMoveUp == true
         {
@@ -841,6 +869,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             self.present(alert, animated: true, completion: nil)
         }
 
+    }
+    @IBAction func actPlayVideo(_ sender: Any) {
     }
 
 }
