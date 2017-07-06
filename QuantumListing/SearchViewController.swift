@@ -111,6 +111,8 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                 locationManager?.requestAlwaysAuthorization()
             }
         }
+        
+        self.cardView.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

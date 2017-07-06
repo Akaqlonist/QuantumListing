@@ -108,7 +108,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         let visibleCell = collectionGallery.visibleCells[0]
         
         let txtToShare = "Visit QuantumListing.com for more information on this listing"
-        let objectsToShare = [txtToShare, (visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
+        let objectsToShare = [(visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
 
