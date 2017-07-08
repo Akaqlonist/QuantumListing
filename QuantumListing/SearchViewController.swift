@@ -928,7 +928,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         
         let parameters: NSMutableDictionary = ["property_id": listing_property["property_id"] as! String, "user_id": (delegate?.user?.user_id)!]
         
-        CircularSpinner.show("", animated: true, type: .indeterminate, showDismissButton: false)
+        //CircularSpinner.show("", animated: true, type: .indeterminate, showDismissButton: false)
         ConnectionManager.sharedClient().post("\(BASE_URL)?apiEntry=favorite_property", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
             print("JSON: \(responseObject)")
             do {
@@ -950,7 +950,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
             }catch{
                 
             }
-            CircularSpinner.hide()
+            //CircularSpinner.hide()
             
         }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
             print("Error: \(String(describing: error))")
@@ -960,7 +960,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
             self.present(alert, animated: true, completion: nil)
             
             self.view.endEditing(true)
-            CircularSpinner.hide()
+            //CircularSpinner.hide()
         })
 
     }
