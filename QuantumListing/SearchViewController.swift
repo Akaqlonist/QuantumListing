@@ -738,7 +738,23 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         btnMap.isSelected = true
         myTableView.isHidden = true
         mapView.isHidden = false
-        cardView.isHidden = false
+        
+        CircularSpinner.show("Loading", animated: true, type: .indeterminate, showDismissButton: false)
+        
+        if (delegate?.user?.latitude != "" && delegate?.user?.longitude != "") {
+            let nowLocation = CLLocationCoordinate2DMake(CLLocationDegrees(NSString(string: (delegate?.user?.latitude)!).doubleValue), CLLocationDegrees(NSString(string: (delegate?.user?.longitude)!).doubleValue))
+            let viewRegion = MKCoordinateRegionMakeWithDistance(nowLocation, 15000, 15000)
+            let adjustedRegion = self.mapView.regionThatFits(viewRegion)
+            self.mapView.setRegion(adjustedRegion, animated: false)
+            
+            self.reverseGeocodeCoordinate(nowLocation)
+        }
+        else {
+            locationManager = CLLocationManager()
+            locationManager?.delegate = self
+            locationManager?.requestAlwaysAuthorization()
+        }
+
     }
     
     // Geocoding Methods
@@ -887,10 +903,10 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         
         lblTitle.text = property_info["property_name"]
         btnLocation.setTitle(property_info["address"], for: .normal)
-        lblSqft.text = property_info["sqft"]
+        lblSqft.text = "\(property_info["sqft"]!) SQFT"
         lblFor.text = property_info["property_for"]
         lblAssetType.text = property_info["property_type"]
-        lblPrice.text = property_info["amount"]
+        lblPrice.text = "$\(property_info["amount"]!)"
         
         ivListing.setIndicatorStyle(.gray)
         ivListing.setShowActivityIndicator(true)

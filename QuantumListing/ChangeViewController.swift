@@ -166,7 +166,7 @@ class ChangeViewController: UIViewController, ListingCellDelegate, UITableViewDe
             }
 
             //cell.lblDate?.text = "\(abs((temp["time_elapsed"] as! NSString).integerValue)) days"
-            cell.lblRentPSF?.text = "$\((listing_property["amount"] as! NSString).integerValue)"
+            cell.lblRentPSF?.text = "$\(listing_property["amount"] as! String)"
             cell.lblSQFT.text = "\(listing_property["sqft"] as! String) SQFT"
             cell.lblAssetType.text = listing_property["property_type"] as! String
 
