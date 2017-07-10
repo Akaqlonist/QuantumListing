@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        registerForKeyboardNotifications()
+        //registerForKeyboardNotifications()
         configureUserInterface()
         // Do any additional setup after loading the view.
     }
@@ -80,41 +80,41 @@ class ProfileViewController: UIViewController ,UITextFieldDelegate, DLCImagePick
         self.view.endEditing(true)
     }
     
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: Notification.Name.UIKeyboardDidShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: Notification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardWasShown(_ aNotification: Notification) {
-        
-        if activeField == nil
-        {
-            return
-        }
-        
-        let info = aNotification.userInfo
-        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsetsMake(0, 0, (kbSize.height), 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        var aRect = self.view.frame
-        aRect.size.height -= (kbSize.height)
-        
-        if(!aRect.contains((activeField?.frame.origin)!)) {
-            let scrollPoint = CGPoint(x: 0, y: (activeField?.frame.origin.y)! - (kbSize.height))
-            scrollView.setContentOffset(scrollPoint, animated: true)
-        }
-        
-    }
-    
-    func keyboardWillBeHidden(_ aNotificaton: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-    }
+//    func registerForKeyboardNotifications() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: Notification.Name.UIKeyboardDidShow, object: nil)
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: Notification.Name.UIKeyboardWillHide, object: nil)
+//    }
+//    
+//    func keyboardWasShown(_ aNotification: Notification) {
+//        
+//        if activeField == nil
+//        {
+//            return
+//        }
+//        
+//        let info = aNotification.userInfo
+//        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        let contentInsets = UIEdgeInsetsMake(0, 0, (kbSize.height), 0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        
+//        var aRect = self.view.frame
+//        aRect.size.height -= (kbSize.height)
+//        
+//        if(!aRect.contains((activeField?.frame.origin)!)) {
+//            let scrollPoint = CGPoint(x: 0, y: (activeField?.frame.origin.y)! - (kbSize.height))
+//            scrollView.setContentOffset(scrollPoint, animated: true)
+//        }
+//        
+//    }
+//    
+//    func keyboardWillBeHidden(_ aNotificaton: Notification) {
+//        let contentInsets = UIEdgeInsets.zero
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        
+//    }
 
 
     override func didReceiveMemoryWarning() {

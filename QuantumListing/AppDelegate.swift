@@ -13,6 +13,7 @@ import TwitterKit
 import FBSDKCoreKit
 import SDWebImage
 import Alamofire
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -214,6 +215,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.products = products! as NSArray
             }
         }
+        
+        IQKeyboardManager.shared().isEnabled = true
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

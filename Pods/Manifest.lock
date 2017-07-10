@@ -55,6 +55,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.20.0):
     - FBSDKCoreKit
+  - IQKeyboardManager (4.0.10)
   - JPSThumbnailAnnotation (1.0.0)
   - JVFloatLabeledTextField (1.1.1)
   - KImageView (0.1.0):
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - IQKeyboardManager
   - JPSThumbnailAnnotation
   - JVFloatLabeledTextField
   - KImageView
@@ -111,6 +113,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
   FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
   FBSDKShareKit: 1b91af62a603d67f392bc7fde63bc4a0705dde31
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   JPSThumbnailAnnotation: 4b35e87788d903db3fec294e7ef44136b9f741fb
   JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
   KImageView: e1da6bbeb61b06f6f2a85d4c8a22bf5ee4096f4f
@@ -121,6 +124,6 @@ SPEC CHECKSUMS:
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
   UXMPDFKit: 7a905716ba5682d41e80f97c80ffd2110d400abb
 
-PODFILE CHECKSUM: 5b2652ccc64a75d90e90e3449129d7cb2a8c09ca
+PODFILE CHECKSUM: 8b1fd5f9e0a8db0f85c17580f4290e221b08095a
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

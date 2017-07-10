@@ -14,7 +14,7 @@ import Alamofire
 import DKImagePickerController
 import JVFloatLabeledTextField
 
-class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDelegate, UINavigationControllerDelegate, LCItemPickerDelegate, PDFManageViewControllerDelegate, MapViewControllerDelegate{
+class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDelegate, UINavigationControllerDelegate, LCItemPickerDelegate, PDFManageViewControllerDelegate, MapViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -42,6 +42,7 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var txtBuildingType: UITextField!
     @IBOutlet weak var txtLeaseType: UITextField!
     @IBOutlet weak var txtAmountPrice: JVFloatLabeledTextField!
+    @IBOutlet weak var collectionThumbnail: UICollectionView!
     
     
     var selectedImages: [UIImage] = [UIImage]()
@@ -67,7 +68,7 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         // Do any additional setup after loading the view.
         
         delegate = UIApplication.shared.delegate as? AppDelegate
-        self.registerForKeyboardNotifications()
+        //self.registerForKeyboardNotifications()
         isGeneratingPDF = true
         self.configureUI()
         self.actChangePhoto(self)
@@ -194,40 +195,40 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
     }
 
     
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: Notification.Name.UIKeyboardDidShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: Notification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardWasShown(_ aNotification: Notification) {
-        
-        if activeField == nil
-        {
-            return
-        }
-        
-        let info = aNotification.userInfo
-        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let contentInsets = UIEdgeInsetsMake(0, 0, (kbSize.height), 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        var aRect = self.view.frame
-        aRect.size.height -= (kbSize.height)
-        
-        if(!aRect.contains((activeField?.frame.origin)!)) {
-            let scrollPoint = CGPoint(x: 0, y: (activeField?.frame.origin.y)! - (kbSize.height))
-            scrollView.setContentOffset(scrollPoint, animated: true)
-        }
-        
-    }
-    
-    func keyboardWillBeHidden(_ aNotificaton: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-    }
+//    func registerForKeyboardNotifications() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: Notification.Name.UIKeyboardDidShow, object: nil)
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: Notification.Name.UIKeyboardWillHide, object: nil)
+//    }
+//    
+//    func keyboardWasShown(_ aNotification: Notification) {
+//        
+//        if activeField == nil
+//        {
+//            return
+//        }
+//        
+//        let info = aNotification.userInfo
+//        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        let contentInsets = UIEdgeInsetsMake(0, 0, (kbSize.height), 0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        
+//        var aRect = self.view.frame
+//        aRect.size.height -= (kbSize.height)
+//        
+//        if(!aRect.contains((activeField?.frame.origin)!)) {
+//            let scrollPoint = CGPoint(x: 0, y: (activeField?.frame.origin.y)! - (kbSize.height))
+//            scrollView.setContentOffset(scrollPoint, animated: true)
+//        }
+//        
+//    }
+//    
+//    func keyboardWillBeHidden(_ aNotificaton: Notification) {
+//        let contentInsets = UIEdgeInsets.zero
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -270,7 +271,7 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
             self.selectedImages.removeAll()
             
             let pickerController = DKImagePickerController()
-            pickerController.maxSelectableCount = 10
+            pickerController.maxSelectableCount = Utilities.MAX_UPLOAD_COUNT
             pickerController.allowMultipleTypes = false
             pickerController.assetType = .allPhotos
             pickerController.showsEmptyAlbums = false
@@ -298,6 +299,8 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
                     self.ivListing.image = self.selectedImages[0]
                     UIApplication.shared.isStatusBarHidden = true
                     self.lblUploadPhoto.isHidden = true
+                    
+                    self.collectionThumbnail.reloadData()
                 }
             }
             
@@ -692,4 +695,32 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         self.dismissPickerControl(view)
     }
 
+    
+    // MARK :- CollectionView Delegate Methods
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return Utilities.MAX_UPLOAD_COUNT
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThumbnailCell", for: indexPath)
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        let plusLabel = cell.viewWithTag(2) as! UILabel
+        
+        if indexPath.row < selectedImages.count
+        {
+            plusLabel.isHidden = true
+            imageView.image = selectedImages[indexPath.row]
+        }
+        else
+        {
+            plusLabel.isHidden = false
+            imageView.addDashedBorderLayerWithColor(color: Utilities.registerBorderColor.cgColor)
+            imageView.image = UIImage()
+        }
+        
+        return cell
+    }
 }

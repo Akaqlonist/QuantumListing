@@ -82,14 +82,14 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="home_stroke.png" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-23-Uqu">
                                         <rect key="frame" x="0.0" y="54.666666666666629" width="331.33333333333337" height="1"/>
                                     </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="home_register.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEj-HM-E0X">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="home_register.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEj-HM-E0X">
                                         <rect key="frame" x="39.999999999999993" y="20.666666666666629" width="16.666666666666671" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="PFP-Nq-guY"/>
                                             <constraint firstAttribute="width" secondItem="BEj-HM-E0X" secondAttribute="height" multiplier="5:4" id="lfU-C0-spo"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="home_login.png" translatesAutoresizingMaskIntoConstraints="NO" id="hyL-Ws-vi7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="home_login.png" translatesAutoresizingMaskIntoConstraints="NO" id="hyL-Ws-vi7">
                                         <rect key="frame" x="39.999999999999993" y="76.333333333333371" width="13" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="whi-B9-fye"/>
@@ -212,16 +212,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-kT-ehp">
-                                <rect key="frame" x="145" y="74" width="124" height="33"/>
+                                <rect key="frame" x="145" y="74" width="124" height="33.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xq6-kT-ehp" secondAttribute="height" multiplier="124:33" id="6Jh-Ld-tQ8"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ap-Gp-3t4" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="335.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="335.66666666666669" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password_@4x" translatesAutoresizingMaskIntoConstraints="NO" id="YYv-Xg-jAz">
-                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666856" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666288" width="21.000000000000004" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="JVj-Rf-htP"/>
                                             <constraint firstAttribute="width" constant="21" id="fvp-x3-z0A"/>
@@ -253,16 +253,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-CX-L2c">
-                                <rect key="frame" x="20.666666666666657" y="485.33333333333337" width="372.66666666666663" height="40.000000000000114"/>
+                                <rect key="frame" x="20.666666666666657" y="485.66666666666663" width="372.66666666666663" height="39.999999999999886"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="I agree to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptl-A3-bsG">
-                                        <rect key="frame" x="28" y="11" width="65" height="18.000000000000057"/>
+                                        <rect key="frame" x="28" y="11" width="65" height="17.999999999999943"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-hE-4Tp">
-                                        <rect key="frame" x="0.0" y="10" width="19.999999999999996" height="20.000000000000057"/>
+                                        <rect key="frame" x="0.0" y="10" width="19.999999999999996" height="19.999999999999943"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="WLA-ah-6L2"/>
                                             <constraint firstAttribute="height" constant="20" id="rRI-h0-Cgt"/>
@@ -281,7 +281,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ks-gm-oAw">
-                                        <rect key="frame" x="101" y="5" width="106" height="30.000000000000057"/>
+                                        <rect key="frame" x="101" y="5" width="106" height="29.999999999999943"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="terms &amp; policy">
                                             <color key="titleColor" red="0.3294117647" green="0.77647058820000003" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -307,7 +307,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8o-rL-CSI">
-                                <rect key="frame" x="20.666666666666657" y="535.33333333333337" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="535.66666666666663" width="372.66666666666663" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d7Q-wL-lxA"/>
                                 </constraints>
@@ -324,16 +324,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up for free" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-RF-Bcc">
-                                <rect key="frame" x="0.0" y="122" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="122.33333333333334" width="414" height="42.000000000000028"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yt1-96-xpb" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="285.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="285.66666666666669" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_sign@4x" translatesAutoresizingMaskIntoConstraints="NO" id="lBC-Rk-SZc">
-                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666856" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666288" width="21.000000000000004" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Q7u-Wm-sBq"/>
                                             <constraint firstAttribute="width" constant="21" id="aE8-pF-Mer"/>
@@ -365,16 +365,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bf-8Y-lDn" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="235.33333333333331" width="372.66666666666663" height="39.999999999999943"/>
+                                <rect key="frame" x="20.666666666666657" y="235.66666666666669" width="372.66666666666663" height="40.000000000000057"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First and Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="31I-Qo-P4i">
-                                        <rect key="frame" x="53" y="8" width="311.66666666666663" height="23.999999999999972"/>
+                                        <rect key="frame" x="53" y="8" width="311.66666666666663" height="24.000000000000028"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username_sign@4x" translatesAutoresizingMaskIntoConstraints="NO" id="gjg-1t-wPV">
-                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666572" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666856" width="21.000000000000004" height="20.999999999999972"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="71m-kY-QgC"/>
                                             <constraint firstAttribute="height" constant="21" id="PLR-aJ-q39"/>
@@ -401,7 +401,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ipa-i5-7wc" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="385.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="385.66666666666669" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-zf-FPe">
                                         <rect key="frame" x="53" y="8" width="311.66666666666663" height="24"/>
@@ -410,7 +410,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call_contact_icon@4x" translatesAutoresizingMaskIntoConstraints="NO" id="TOb-CS-K9L">
-                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666856" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666288" width="21.000000000000004" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="98n-da-5YT"/>
                                             <constraint firstAttribute="width" constant="21" id="i0T-ll-jcG"/>
@@ -436,7 +436,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtT-XC-Xdk" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="435.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="435.66666666666669" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website(Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdR-YU-7tP">
                                         <rect key="frame" x="53" y="8" width="311.66666666666663" height="24"/>
@@ -444,7 +444,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="website_contact_icon@4x" translatesAutoresizingMaskIntoConstraints="NO" id="QCE-bT-ApB">
-                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666856" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.6666666666666288" width="21.000000000000004" height="21"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -465,7 +465,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="889-39-PYP" customClass="RegisterFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="435.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="435.66666666666669" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ax4-qo-1nx">
                                         <rect key="frame" x="16" y="8" width="348.66666666666663" height="24"/>
@@ -493,13 +493,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Trial Premium Membership" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPm-qr-Vq0">
-                                <rect key="frame" x="62" y="174" width="290" height="20.333333333333343"/>
+                                <rect key="frame" x="62" y="174.33333333333334" width="290" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.28627450980392155" green="0.6588235294117647" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you will be able to post for 3 months" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jag-4i-bb9">
-                                <rect key="frame" x="19.333333333333343" y="199.33333333333334" width="376.33333333333337" height="21"/>
+                                <rect key="frame" x="19.333333333333343" y="199.66666666666666" width="376.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.28627450980392155" green="0.6588235294117647" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -755,16 +755,16 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dNY-hT-CRe">
-                                <rect key="frame" x="145" y="74" width="124" height="33"/>
+                                <rect key="frame" x="145" y="74" width="124" height="33.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dNY-hT-CRe" secondAttribute="height" multiplier="124:33" id="NMc-SG-RaB"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-YG-9PN" customClass="LoginFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="179" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="179.33333333333334" width="372.66666666666663" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_sign@4x" translatesAutoresizingMaskIntoConstraints="NO" id="CQg-9K-svt">
-                                        <rect key="frame" x="15.999999999999996" y="9.3333333333333428" width="21.000000000000004" height="21"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.3333333333333144" width="21.000000000000004" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ORW-Ld-eLu"/>
                                             <constraint firstAttribute="width" constant="21" id="Wzd-zr-fk0"/>
@@ -797,17 +797,17 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-gH-nxk" customClass="LoginFormView" customModule="QuantumListing" customModuleProvider="target">
-                                <rect key="frame" x="20.666666666666657" y="229" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="229.33333333333331" width="372.66666666666663" height="39.999999999999943"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password_@4x" translatesAutoresizingMaskIntoConstraints="NO" id="KbU-OU-Bxs">
-                                        <rect key="frame" x="15.999999999999996" y="9.3333333333333428" width="21.000000000000004" height="20.999999999999972"/>
+                                        <rect key="frame" x="15.999999999999996" y="9.3333333333333144" width="21.000000000000004" height="21.000000000000028"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="91T-hV-QD9"/>
                                             <constraint firstAttribute="width" constant="21" id="ebE-xT-EoT"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moA-rB-aso">
-                                        <rect key="frame" x="53" y="8" width="311.66666666666663" height="24"/>
+                                        <rect key="frame" x="53" y="8" width="311.66666666666663" height="23.999999999999972"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -833,19 +833,19 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrG-Ts-Ek5">
-                                <rect key="frame" x="0.0" y="122" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="122.33333333333334" width="414" height="42.000000000000028"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.16078431372549018" green="0.25882352941176467" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Keep me signed in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYj-wN-gbH">
-                                <rect key="frame" x="48.666666666666657" y="285.33333333333331" width="187.66666666666669" height="18"/>
+                                <rect key="frame" x="48.666666666666657" y="285.66666666666669" width="187.66666666666669" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.59999999999999998" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-js-qXT">
-                                <rect key="frame" x="244.33333333333331" y="279.33333333333331" width="148.99999999999994" height="30"/>
+                                <rect key="frame" x="244.33333333333331" y="279.66666666666669" width="148.99999999999994" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Forgotten password?">
                                     <color key="titleColor" red="0.54117647058823526" green="0.53333333333333333" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -857,7 +857,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yp-lX-uo6">
-                                <rect key="frame" x="20.666666666666664" y="285" width="19.999999999999993" height="20"/>
+                                <rect key="frame" x="20.666666666666664" y="285.33333333333331" width="19.999999999999993" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="YCI-gC-kQA"/>
                                     <constraint firstAttribute="height" constant="20" id="k8q-Cv-dZc"/>
@@ -873,7 +873,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-9s-YGg">
-                                <rect key="frame" x="20.666666666666657" y="325.33333333333331" width="372.66666666666663" height="40"/>
+                                <rect key="frame" x="20.666666666666657" y="325.66666666666669" width="372.66666666666663" height="40"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
                                 <state key="normal" title="Submit" backgroundImage="register_submit_button.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1262,7 +1262,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-lz-06w">
-                                <rect key="frame" x="273" y="405.66666666666669" width="137" height="25"/>
+                                <rect key="frame" x="273" y="405.66666666666669" width="136.66666666666669" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="JLc-c3-N0T"/>
                                 </constraints>
@@ -2212,9 +2212,9 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have no listings posted yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-XC-lNj">
-                                <rect key="frame" x="76" y="378" width="261" height="24.666666666666686"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="88.666666666666686" y="380.66666666666669" width="237" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.54117647059999996" green="0.59999999999999998" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="410" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gUq-hO-f8Q">
@@ -2229,10 +2229,10 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7A-be-f4G">
-                                                    <rect key="frame" x="10" y="10" width="394" height="390"/>
+                                                    <rect key="frame" x="10" y="10" width="300" height="390"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5NR-Ee-rcS">
-                                                            <rect key="frame" x="10" y="6" width="374" height="46"/>
+                                                            <rect key="frame" x="10" y="6" width="280" height="46"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5J5-hh-8cR">
                                                                     <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
@@ -2260,7 +2260,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                     </constraints>
                                                                 </view>
                                                                 <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caw-ri-1H0">
-                                                                    <rect key="frame" x="318" y="12.666666666666666" width="16" height="21"/>
+                                                                    <rect key="frame" x="224" y="12.666666666666666" width="16" height="21"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <state key="normal" image="flag@4x">
                                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2274,7 +2274,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz1-9O-FBS">
-                                                                    <rect key="frame" x="344" y="13" width="20" height="20"/>
+                                                                    <rect key="frame" x="250" y="13" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="cDW-i5-Er5"/>
                                                                     </constraints>
@@ -2303,16 +2303,16 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" verticalHuggingPriority="751" verticalCompressionResistancePriority="761" translatesAutoresizingMaskIntoConstraints="NO" id="0Za-aF-jjc">
-                                                            <rect key="frame" x="0.0" y="338" width="394" height="52"/>
+                                                            <rect key="frame" x="0.0" y="338" width="300" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xU3-dh-eGm">
-                                                                    <rect key="frame" x="50" y="8" width="313" height="17"/>
+                                                                    <rect key="frame" x="50" y="8" width="219" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.54117647059999996" green="0.59999999999999998" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Sale" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-YD-RYy">
-                                                                    <rect key="frame" x="333" y="27" width="53" height="17"/>
+                                                                    <rect key="frame" x="239" y="27" width="53" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.28627450980392155" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -2330,7 +2330,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImH-0F-gUE">
-                                                                    <rect key="frame" x="368" y="8" width="18" height="17"/>
+                                                                    <rect key="frame" x="274" y="8" width="18" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -2366,7 +2366,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Hj5-A3-aU0">
-                                                            <rect key="frame" x="10" y="68" width="374" height="21"/>
+                                                            <rect key="frame" x="10" y="68" width="280" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="zam-3J-FJo"/>
                                                             </constraints>
@@ -2375,19 +2375,19 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dv6-UE-fTZ">
-                                                            <rect key="frame" x="10" y="68" width="374" height="21"/>
+                                                            <rect key="frame" x="10" y="68" width="280" height="21"/>
                                                             <color key="textColor" red="0.54117647059999996" green="0.59999999999999998" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                         </textField>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperator_thick.png" translatesAutoresizingMaskIntoConstraints="NO" id="pJE-fH-SZu">
-                                                            <rect key="frame" x="10" y="57" width="374" height="1"/>
+                                                            <rect key="frame" x="10" y="57" width="280" height="1"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="ozw-ep-McN"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yep-BF-hdf">
-                                                            <rect key="frame" x="10" y="99" width="374" height="21"/>
+                                                            <rect key="frame" x="10" y="99" width="280" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="S0x-JX-7xX"/>
                                                             </constraints>
@@ -2401,7 +2401,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                             </connections>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="R11-Ep-mDK">
-                                                            <rect key="frame" x="0.0" y="128" width="394" height="210"/>
+                                                            <rect key="frame" x="0.0" y="128" width="300" height="210"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="210" id="Dwu-ig-W68"/>
                                                             </constraints>
@@ -2828,7 +2828,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 <rect key="frame" x="0.0" y="46" width="414" height="1505"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEN-Pg-BOq" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1650"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X19-bI-xph">
                                                 <rect key="frame" x="10" y="3" width="152.66666666666666" height="21"/>
@@ -2847,6 +2847,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8hn-u3-fN2">
                                                         <rect key="frame" x="8" y="40" width="377" height="30"/>
+                                                        <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                         <connections>
@@ -2855,6 +2856,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-nt-gRr">
                                                         <rect key="frame" x="8" y="5" width="185.66666666666666" height="30"/>
+                                                        <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                         <connections>
@@ -2863,6 +2865,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zta-wX-kr3">
                                                         <rect key="frame" x="199.66666666666663" y="5" width="185.33333333333337" height="30"/>
+                                                        <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         <connections>
@@ -2960,6 +2963,15 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                             <action selector="actLeaseType:" destination="QMj-By-nju" eventType="touchUpInside" id="sYa-4C-41u"/>
                                                         </connections>
                                                     </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property Title*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0N-G2-6mx" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="5" y="10" width="383" height="29"/>
+                                                        <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="QMj-By-nju" id="2sL-m1-Nuk"/>
+                                                        </connections>
+                                                    </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ouC-di-V0y" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="5" y="129" width="383" height="29"/>
                                                         <constraints>
@@ -2980,15 +2992,6 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                         <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Property Title*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0N-G2-6mx" customClass="JVFloatLabeledTextField">
-                                                        <rect key="frame" x="5" y="10" width="383" height="29"/>
-                                                        <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="QMj-By-nju" id="2sL-m1-Nuk"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -3049,11 +3052,11 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Upload Photo or PDF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq9-Zc-pgZ">
-                                                <rect key="frame" x="112" y="628" width="190" height="20"/>
+                                                <rect key="frame" x="120.66666666666669" y="628" width="173" height="20"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                 </accessibility>
-                                                <fontDescription key="fontDescription" name="GillSans-BoldItalic" family="Gill Sans" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.75686274509803919" green="0.80392156862745101" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3076,7 +3079,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0U-uS-UxX">
-                                                <rect key="frame" x="20" y="858" width="374" height="440"/>
+                                                <rect key="frame" x="20" y="908" width="374" height="440"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB3-ta-TRK">
                                                         <rect key="frame" x="5" y="316" width="69" height="16"/>
@@ -3212,6 +3215,54 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     <constraint firstItem="rkB-23-uEJ" firstAttribute="top" secondItem="U0U-uS-UxX" secondAttribute="top" constant="4" id="z6v-OK-zkk"/>
                                                 </constraints>
                                             </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6tx-rU-2P8">
+                                                <rect key="frame" x="10" y="848" width="394" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ymf-mu-qal"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="Rtr-41-zMs">
+                                                    <size key="itemSize" width="100" height="48"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThumbnailCell" id="tv8-PY-ExS">
+                                                        <rect key="frame" x="0.0" y="1" width="100" height="48"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rzx-Yn-5fs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="47"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwx-DD-BMo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                    <color key="textColor" red="0.28627450980000002" green="0.6588235294" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="gwx-DD-BMo" firstAttribute="top" secondItem="tv8-PY-ExS" secondAttribute="top" id="1UR-uR-8ga"/>
+                                                            <constraint firstItem="rzx-Yn-5fs" firstAttribute="leading" secondItem="tv8-PY-ExS" secondAttribute="leading" id="1cr-ma-9bk"/>
+                                                            <constraint firstAttribute="bottom" secondItem="gwx-DD-BMo" secondAttribute="bottom" id="GiF-4m-Hg9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="rzx-Yn-5fs" secondAttribute="trailing" id="Ryg-rd-ayL"/>
+                                                            <constraint firstItem="gwx-DD-BMo" firstAttribute="leading" secondItem="tv8-PY-ExS" secondAttribute="leading" id="XHL-eX-fXF"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rzx-Yn-5fs" secondAttribute="bottom" constant="1" id="Zur-Wa-upU"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gwx-DD-BMo" secondAttribute="trailing" id="jOa-3a-CUT"/>
+                                                            <constraint firstItem="rzx-Yn-5fs" firstAttribute="top" secondItem="tv8-PY-ExS" secondAttribute="top" id="vVc-U5-nvF"/>
+                                                        </constraints>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="QMj-By-nju" id="WPi-fJ-iAJ"/>
+                                                    <outlet property="delegate" destination="QMj-By-nju" id="blB-Kj-XX6"/>
+                                                </connections>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -3222,6 +3273,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                             <constraint firstItem="erS-ck-l2b" firstAttribute="top" secondItem="Id0-1X-OMx" secondAttribute="bottom" constant="5" id="91I-Sp-aqi"/>
                                             <constraint firstItem="S8e-aW-ZO8" firstAttribute="leading" secondItem="YVH-WW-qL8" secondAttribute="leading" id="CyK-dW-2EC"/>
                                             <constraint firstItem="NmK-fF-0Dq" firstAttribute="centerY" secondItem="4bO-85-Z5W" secondAttribute="centerY" id="Cyx-Js-ku5"/>
+                                            <constraint firstItem="6tx-rU-2P8" firstAttribute="top" secondItem="2TT-fZ-iye" secondAttribute="bottom" constant="10" id="Ezt-wZ-OU5"/>
                                             <constraint firstItem="U0U-uS-UxX" firstAttribute="leading" secondItem="HEN-Pg-BOq" secondAttribute="leading" constant="20" id="HU4-XY-r5P"/>
                                             <constraint firstItem="yUb-Hz-68H" firstAttribute="top" secondItem="zYg-Po-0Ky" secondAttribute="bottom" id="Ibh-mS-1eo"/>
                                             <constraint firstItem="erS-ck-l2b" firstAttribute="centerX" secondItem="HEN-Pg-BOq" secondAttribute="centerX" id="MLa-A9-f01"/>
@@ -3236,8 +3288,11 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                             <constraint firstItem="As8-36-lWt" firstAttribute="leading" secondItem="NmK-fF-0Dq" secondAttribute="trailing" constant="10" id="SAI-Hj-x70"/>
                                             <constraint firstItem="S8e-aW-ZO8" firstAttribute="centerX" secondItem="HEN-Pg-BOq" secondAttribute="centerX" id="SUP-5c-wvf"/>
                                             <constraint firstItem="zYg-Po-0Ky" firstAttribute="top" secondItem="4bO-85-Z5W" secondAttribute="bottom" constant="15" id="TbZ-uT-yWm"/>
-                                            <constraint firstAttribute="height" constant="1600" id="W8f-xZ-Q1T"/>
+                                            <constraint firstItem="U0U-uS-UxX" firstAttribute="top" secondItem="6tx-rU-2P8" secondAttribute="bottom" constant="10" id="VZ4-ig-UsO"/>
+                                            <constraint firstAttribute="height" constant="1650" id="W8f-xZ-Q1T"/>
+                                            <constraint firstAttribute="trailing" secondItem="6tx-rU-2P8" secondAttribute="trailing" constant="10" id="W8r-za-drq"/>
                                             <constraint firstItem="tMq-rh-UGU" firstAttribute="centerX" secondItem="erS-ck-l2b" secondAttribute="centerX" id="aRk-HD-7O5"/>
+                                            <constraint firstItem="6tx-rU-2P8" firstAttribute="leading" secondItem="HEN-Pg-BOq" secondAttribute="leading" constant="10" id="bX9-GH-CZ8"/>
                                             <constraint firstItem="2TT-fZ-iye" firstAttribute="height" secondItem="tMq-rh-UGU" secondAttribute="height" id="biD-XW-ceK"/>
                                             <constraint firstItem="4bO-85-Z5W" firstAttribute="top" secondItem="S8e-aW-ZO8" secondAttribute="bottom" constant="5" id="c5r-q1-xbu"/>
                                             <constraint firstItem="43y-Lq-eUa" firstAttribute="leading" secondItem="NmK-fF-0Dq" secondAttribute="trailing" constant="10" id="dB7-m4-eVN"/>
@@ -3256,7 +3311,6 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                             <constraint firstItem="4bO-85-Z5W" firstAttribute="centerX" secondItem="S8e-aW-ZO8" secondAttribute="centerX" id="rxe-Vk-wVJ"/>
                                             <constraint firstItem="Id0-1X-OMx" firstAttribute="leading" secondItem="PwQ-Zu-j1c" secondAttribute="leading" id="tIw-dN-piw"/>
                                             <constraint firstItem="S8e-aW-ZO8" firstAttribute="top" secondItem="YVH-WW-qL8" secondAttribute="bottom" constant="5" id="tPl-1h-62Q"/>
-                                            <constraint firstItem="U0U-uS-UxX" firstAttribute="top" secondItem="2TT-fZ-iye" secondAttribute="bottom" constant="20" id="wnx-md-ncB"/>
                                             <constraint firstItem="erS-ck-l2b" firstAttribute="width" secondItem="HEN-Pg-BOq" secondAttribute="width" constant="-20" id="wzK-qr-WWK"/>
                                             <constraint firstItem="X19-bI-xph" firstAttribute="top" secondItem="HEN-Pg-BOq" secondAttribute="top" constant="3" id="y0v-Ju-uqP"/>
                                             <constraint firstItem="43y-Lq-eUa" firstAttribute="top" secondItem="NmK-fF-0Dq" secondAttribute="top" id="yhw-RI-7Cb"/>
@@ -3311,6 +3365,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                     <size key="freeformSize" width="414" height="1600"/>
                     <connections>
                         <outlet property="btnChooseFile" destination="Id0-1X-OMx" id="6Yj-QN-1ey"/>
+                        <outlet property="collectionThumbnail" destination="6tx-rU-2P8" id="Oie-ad-YR4"/>
                         <outlet property="contentView" destination="HEN-Pg-BOq" id="L6Y-3q-bCY"/>
                         <outlet property="heightOfContentView" destination="W8f-xZ-Q1T" id="Vgj-QI-XcJ"/>
                         <outlet property="ivListing" destination="tMq-rh-UGU" id="pIz-6q-L7a"/>
@@ -3975,7 +4030,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3l-50-jDh">
                                                         <rect key="frame" x="100" y="0.0" width="314" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="h8K-Je-9fP">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h8K-Je-9fP">
                                                             <size key="itemSize" width="100" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -3990,7 +4045,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zdn-15-hQF">
-                                                                            <rect key="frame" x="0.0" y="1" width="100" height="49"/>
+                                                                            <rect key="frame" x="0.0" y="1" width="100" height="46"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                 </view>
@@ -3998,7 +4053,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                                                     <constraint firstItem="Zdn-15-hQF" firstAttribute="leading" secondItem="nes-Kv-vNw" secondAttribute="leading" id="FF7-4e-wRw"/>
                                                                     <constraint firstItem="Zdn-15-hQF" firstAttribute="top" secondItem="nes-Kv-vNw" secondAttribute="top" constant="1" id="V3T-Mi-lCx"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Zdn-15-hQF" secondAttribute="trailing" id="n1Q-lg-QjF"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="Zdn-15-hQF" secondAttribute="bottom" id="x4t-w5-UI3"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Zdn-15-hQF" secondAttribute="bottom" constant="3" id="x4t-w5-UI3"/>
                                                                 </constraints>
                                                             </collectionViewCell>
                                                         </cells>
@@ -4830,19 +4885,19 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faF-e2-y8g">
-                                        <rect key="frame" x="234" y="106.66666666666666" width="144" height="27.666666666666686"/>
+                                        <rect key="frame" x="234" y="106.66666666666666" width="144" height="28.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.54117647059999996" green="0.59999999999999998" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-wx-xqj">
-                                        <rect key="frame" x="234" y="134.33333333333334" width="144" height="27"/>
+                                        <rect key="frame" x="234" y="135" width="144" height="27.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4Z-EL-gdE">
-                                        <rect key="frame" x="234" y="161.33333333333337" width="144" height="27.666666666666657"/>
+                                        <rect key="frame" x="234" y="162.33333333333337" width="144" height="27.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.027450980390000001" green="0.63137254899999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4930,7 +4985,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 <rect key="frame" x="207" y="44" width="207" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Popular">
-                                    <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="selected" backgroundImage="register_submit_button.png">
@@ -4944,7 +4999,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                 <rect key="frame" x="0.0" y="44" width="207" height="34"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Map">
-                                    <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="selected" backgroundImage="register_submit_button.png">
@@ -4954,9 +5009,9 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                     <action selector="actMap:" destination="7PQ-7w-aSr" eventType="touchUpInside" id="kxZ-qX-KQf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xj2-f9-Ega">
-                                <rect key="frame" x="347" y="5" width="62" height="34"/>
-                                <state key="normal" title="Filter" backgroundImage="register_submit_button.png">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xj2-f9-Ega">
+                                <rect key="frame" x="347" y="11" width="62" height="22"/>
+                                <state key="normal" image="filter_icon@4x">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -5250,6 +5305,7 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
         <image name="email-contact_icon@4x" width="21" height="16"/>
         <image name="email_sign@4x" width="17" height="10"/>
         <image name="eye_icon@4x" width="24" height="13"/>
+        <image name="filter_icon@4x" width="21" height="21"/>
         <image name="flag@4x" width="16" height="21"/>
         <image name="gear.png" width="33" height="33"/>
         <image name="home_arrows.png" width="8" height="14"/>

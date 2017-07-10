@@ -23,5 +23,5 @@ target 'QuantumListing' do
     pod 'DKImagePickerController'
     pod 'PagedHorizontalView'
     pod 'JVFloatLabeledTextField'
-    
+    pod 'IQKeyboardManager'
 end

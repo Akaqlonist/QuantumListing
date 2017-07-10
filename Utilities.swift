@@ -67,6 +67,7 @@ class Utilities: NSObject {
         return self.miles(fromKM: d)
     }
 
+    static var MAX_UPLOAD_COUNT = 10
     
     // Color Set //
     static var registerBorderColor = UIColor(red: 0xc1/0xff, green: 0xcd/0xff, blue: 0xdc/0xff, alpha: 1.0)
