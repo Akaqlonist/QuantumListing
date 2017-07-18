@@ -454,44 +454,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
 
     }
     
-//    func registerForKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    func keyboardWasShown(aNotification : NSNotification) {
-//        if(activeField == nil)
-//        {
-//            return
-//        }
-//        
-//        let info = aNotification.userInfo
-//        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-//        let contentInsets = UIEdgeInsetsMake(0, 0, (kbSize.height), 0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        var aRect = self.view.frame
-//        aRect.size.height -= (kbSize.height)
-//        
-//        if(!aRect.contains((activeField?.frame.origin)!)) {
-//            
-//            let offset = (activeField?.frame.origin.y)! - (kbSize.height)
-//            
-//            if offset > 0
-//            {
-//            let scrollPoint = CGPoint(x: 0, y: offset)
-//            scrollView.setContentOffset(scrollPoint, animated: true)
-//            }
-//        }
-//
-//    }
-//    
-//    func keyboardWillBeHidden(aNotificiation : NSNotification) {
-//        let contentInsets = UIEdgeInsets.zero
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//    }
     
     func didClickedHashtag(hashtag: NSString) {
         
