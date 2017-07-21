@@ -367,6 +367,7 @@
 		CBD552371EA4B4D300CE7874 /* 9@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBD551F91EA4B4D300CE7874 /* 9@2x.jpg */; };
 		CBD552381EA4B4D300CE7874 /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD551FB1EA4B4D300CE7874 /* GrayscaleContrastFilter.m */; };
 		CBD738781E950FB100F253AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD738771E950FB100F253AF /* CoreGraphics.framework */; };
+		CFF64FE71F22A90F007333F7 /* YoutubeVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF64FE61F22A90F007333F7 /* YoutubeVideoPlayerViewController.swift */; };
 		E972B903594DA5C5FCFCDA89 /* Pods_QuantumListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB537C88AE1C5399172A87B /* Pods_QuantumListing.framework */; };
 /* End PBXBuildFile section */
 
@@ -906,6 +907,7 @@
 		CBD551FA1EA4B4D300CE7874 /* GrayscaleContrastFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayscaleContrastFilter.h; sourceTree = "<group>"; };
 		CBD551FB1EA4B4D300CE7874 /* GrayscaleContrastFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayscaleContrastFilter.m; sourceTree = "<group>"; };
 		CBD738771E950FB100F253AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CFF64FE61F22A90F007333F7 /* YoutubeVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		D544E5CCD90FEDB7B46A9E6F /* Pods-QuantumListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuantumListing.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuantumListing/Pods-QuantumListing.release.xcconfig"; sourceTree = "<group>"; };
 		EEB537C88AE1C5399172A87B /* Pods_QuantumListing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuantumListing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1230,6 +1232,7 @@
 				B3D9BE071E81D1C700EC6FCE /* ListingViewController.swift */,
 				B3E7B8241E829EF900E9E471 /* DetailViewController.swift */,
 				B3E7B82B1E82ABBE00E9E471 /* MapViewController.swift */,
+				CFF64FE61F22A90F007333F7 /* YoutubeVideoPlayerViewController.swift */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -2217,6 +2220,7 @@
 				CBD552381EA4B4D300CE7874 /* GrayscaleContrastFilter.m in Sources */,
 				CB586BB61EA68F9F006CA001 /* GPUImageKuwaharaFilter.m in Sources */,
 				CB586BE01EA68F9F006CA001 /* GPUImageRGBClosingFilter.m in Sources */,
+				CFF64FE71F22A90F007333F7 /* YoutubeVideoPlayerViewController.swift in Sources */,
 				CB586BF11EA68F9F006CA001 /* GPUImageSoftLightBlendFilter.m in Sources */,
 				CB586BD31EA68F9F006CA001 /* GPUImageOverlayBlendFilter.m in Sources */,
 				CB586B9E1EA68F9F006CA001 /* GPUImageFastBlurFilter.m in Sources */,

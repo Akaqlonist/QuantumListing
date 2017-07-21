@@ -106,8 +106,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         let visibleCell = collectionGallery.visibleCells[0]
         
-        let txtToShare = "Visit QuantumListing.com for more information on this listing"
-        let objectsToShare = [(visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
+        //let txtToShare = "Visit QuantumListing.com for more information on this listing"
+        let capturedImage = snapshot()
+        
+        let objectsToShare = [capturedImage] as [Any]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
 
@@ -838,6 +840,66 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     func actPlayVideo() {
         
+        CircularSpinner.show("", animated: true, type: .indeterminate, showDismissButton: nil, delegate: nil)
+        
+        let parameters : [String : String] = ["user_id": (delegate?.user?.user_id)!, "property_id": self.listing_property!["property_id"] as! String]
+        
+        ConnectionManager.sharedClient().get("\(BASE_URL)?apiEntry=get_video_url", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
+            do {
+                let responseDict = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary
+                print(responseDict)
+            
+                let video_url = responseDict["video_url"] as! String
+                
+                if video_url == ""
+                {
+                    let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no video was added", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    //play video
+                    let videoPlayerVC = YoutubeVideoPlayerViewController(videoIdentifier: video_url)
+                    self.present(videoPlayerVC, animated: true, completion: nil)
+                }
+                
+                
+            }catch{
+                
+            }
+            
+            CircularSpinner.hide()
+            
+        }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
+            print("Error: \(String(describing: error))")
+            
+            CircularSpinner.hide()
+        })
+
+        
+    }
+    
+    func snapshot() -> UIImage?
+    {
+        UIGraphicsBeginImageContext(scrollView.contentSize)
+        
+        let savedContentOffset = scrollView.contentOffset
+        let savedFrame = scrollView.frame;
+        
+        scrollView.contentOffset = CGPoint.zero;
+        scrollView.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height);
+        
+        scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        scrollView.contentOffset = savedContentOffset;
+        scrollView.frame = savedFrame;
+        
+        UIGraphicsEndImageContext();
+        
+        return image
     }
 
 }
+

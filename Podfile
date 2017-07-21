@@ -24,4 +24,5 @@ target 'QuantumListing' do
     pod 'PagedHorizontalView'
     pod 'JVFloatLabeledTextField'
     pod 'IQKeyboardManager'
+    pod 'XCDYouTubeKit'
 end

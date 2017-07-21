@@ -258,6 +258,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication : sourceApplication, annotation : annotation)
         }
     }
-
+    
+    func application(_ supportedInterfaceOrientationsForapplication: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        if self.window?.rootViewController?.presentedViewController is YoutubeVideoPlayerViewController {
+            
+            let secondController = self.window!.rootViewController!.presentedViewController as! YoutubeVideoPlayerViewController
+            
+            if secondController.isPresented { // Check current controller state
+                return UIInterfaceOrientationMask.all
+            } else {
+                return UIInterfaceOrientationMask.portrait
+            }
+        } else {
+            return UIInterfaceOrientationMask.portrait
+        }
+        
+    }
+    
 }
+
 

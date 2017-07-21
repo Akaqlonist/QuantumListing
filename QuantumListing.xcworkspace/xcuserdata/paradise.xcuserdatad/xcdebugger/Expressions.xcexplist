@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "UIImage.init(view : UIView, scrollView : UIScrollView) -&gt; UIImage:DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scrollView.contentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

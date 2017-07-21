@@ -199,8 +199,13 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
             if ((listing_property["property_for"] as! String) == "lease") {
                 cell.lblLeaseType.text = "For Lease"
             }
-            else {
+            else if((listing_property["property_for"] as! String) == "sale")
+            {
                 cell.lblLeaseType.text = "For Sale"
+            }
+            else
+            {
+                cell.lblLeaseType.text = "For Sale & Lease"
             }
             let temp = listing_property["amount"] as! String
             cell.lblRentPSF.text = "$\(temp)"

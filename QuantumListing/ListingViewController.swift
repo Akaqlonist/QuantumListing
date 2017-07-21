@@ -412,16 +412,17 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
             }
 
             
-            if (txtLeaseType.text == "For Lease") {
+            if txtLeaseType.text == "For Lease"
+            {
                 main_params.setValue("lease", forKey: "property_for")
             }
             else if txtLeaseType.text == "For Sale"
             {
                 main_params.setValue("sale", forKey: "property_for")
             }
-            else
+            else if txtLeaseType.text == "For Sale & Lease"
             {
-                main_params.setValue("sale", forKey: "property_for")
+                main_params.setValue("both", forKey: "property_for")
             }
             
             let detail_params: NSMutableDictionary = ["building_size":txtBuildingSize.text!, "rent_psf": txtRentPSF.text!, "taxes_psf": txtTaxesPSF.text!, "common_charges": txtCommonCharges.text!, "co_tenent": txtCoTenants.text!, "sqft": txtFTAvailable.text!, "parkings":txtParking.text!, "date_available" : txtDateAvailable.text!]

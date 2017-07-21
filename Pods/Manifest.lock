@@ -71,6 +71,7 @@ PODS:
   - TwitterKit (2.8.1):
     - TwitterCore (>= 2.8)
   - UXMPDFKit (0.6.4)
+  - XCDYouTubeKit (2.5.5)
 
 DEPENDENCIES:
   - AFNetworking
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - TwitterCore
   - TwitterKit
   - UXMPDFKit
+  - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -123,7 +125,8 @@ SPEC CHECKSUMS:
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
   UXMPDFKit: 7a905716ba5682d41e80f97c80ffd2110d400abb
+  XCDYouTubeKit: 86f4e7a9c2baa7b7adf6abfc28ac3ab34927be2d
 
-PODFILE CHECKSUM: 8b1fd5f9e0a8db0f85c17580f4290e221b08095a
+PODFILE CHECKSUM: 5ae35da0077a7c976fa5bf19e2be2d471d9bdab1
 
 COCOAPODS: 1.2.1

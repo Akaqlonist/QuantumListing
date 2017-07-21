@@ -191,7 +191,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     let evaulatedObject = object as! [String:Any]
                     let temp1 = evaulatedObject["property_info"] as! [String: Any]
                     let temp2 = temp1["property_for"] as! String
-                    if (temp2 == "sale&lease") {
+                    if (temp2 == "sale & lease") {
                         return true
                     }
                     return false
@@ -912,9 +912,21 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         lblTitle.text = property_info["property_name"]
         btnLocation.setTitle(property_info["address"], for: .normal)
         lblSqft.text = "\(property_info["sqft"]!) SQFT"
-        lblFor.text = property_info["property_for"]
         lblAssetType.text = property_info["property_type"]
         lblPrice.text = "$\(property_info["amount"]!)"
+        
+        if property_info["propert_for"] == "sale"
+        {
+            lblFor.text = "For Sale"
+        }
+        else if property_info["property_for"] == "lease"
+        {
+            lblFor.text = "For Lease"
+        }
+        else
+        {
+            lblFor.text = "For Sale & Lease"
+        }
         
         if listing["isFavorite"] as! Int == 0
         {
@@ -929,31 +941,19 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         ivListing.setShowActivityIndicator(true)
         ivListing.sd_setImage(with: URL(string: property_image["property_image"]!)!)
         
-        //move map center
-        let latitude = Double(property_info["latitude"]!)
-        let longitude = Double(property_info["lognitude"]!)
-        let nowLocation = CLLocationCoordinate2DMake(CLLocationDegrees(latitude!), CLLocationDegrees(longitude!))
-        self.mapView.setCenter(nowLocation, animated: true)
+        
     }
 
     // MARK: - Card View Actions
     @IBAction func actLocation(_ sender: Any) {
+        
         let dict = listing_list?[currentIndex] as! NSDictionary
         let listing_property = dict["property_info"] as! NSDictionary
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mapVC = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        
-        let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees((listing_property["latitude"] as! NSString).doubleValue), CLLocationDegrees((listing_property["lognitude"] as! NSString).doubleValue))
-        if (coordinate.latitude != 0 && coordinate.longitude != 0) {
-            mapVC.selectedLocation = coordinate
-            self.navigationController?.pushViewController(mapVC, animated: true)
-        }
-        else {
-            let alert = UIAlertController(title: "QuantumListing", message: "Sorry, no map location was added", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+
+        let latitude = Double(listing_property["latitude"] as! String)
+        let longitude = Double(listing_property["lognitude"] as! String)
+        let nowLocation = CLLocationCoordinate2DMake(CLLocationDegrees(latitude!), CLLocationDegrees(longitude!))
+        self.mapView.setCenter(nowLocation, animated: true)
     }
     @IBAction func actFavorite(_ sender: Any) {
         let listing = listing_list?[currentIndex] as! NSMutableDictionary

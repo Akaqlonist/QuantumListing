@@ -173,8 +173,13 @@ class ChangeViewController: UIViewController, ListingCellDelegate, UITableViewDe
             if ((listing_property["property_for"] as! String) == "lease") {
                 cell.lblLeaseType.text = "For Lease"
             }
-            else {
+            else if ((listing_property["property_for"] as! String) == "sale")
+            {
                 cell.lblLeaseType.text = "For Sale"
+            }
+            else
+            {
+                cell.lblLeaseType.text = "For Sale & Lease"
             }
         }
         cell.buttonAddress.setTitle("   \(listing_property["address"] as! String)", for: UIControlState.normal)
