@@ -106,8 +106,48 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         txtBuildingType.text = ""
         txtLeaseType.text = ""
         activeField?.resignFirstResponder()
+        txtAmountPrice.text = ""
+        
+        self.setCurrentDate()
         
         self.selectedImages.removeAll()
+        self.collectionThumbnail.reloadData()
+    }
+    
+    func onUploadingDone(property_id : String)
+    {
+        resetFields()
+        
+        //get uploaded property detail
+        let parameters : [String : String] = ["user_id": (delegate?.user?.user_id)!, "property_id": property_id]
+        
+        ConnectionManager.sharedClient().get("\(BASE_URL)?apiEntry=property_by_id", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
+            do {
+                let responseDict = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary
+                print(responseDict)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let dc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+
+                dc.listing = responseDict
+                dc.scrollViewShouldMoveUp = true
+                dc.isOwner = true
+                
+                self.navigationController?.pushViewController(dc, animated: true)
+                
+                
+            }catch{
+                
+            }
+
+            CircularSpinner.hide()
+            
+        }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
+            print("Error: \(String(describing: error))")
+
+            CircularSpinner.hide()
+        })
+
     }
     
     func configureUI() {
@@ -154,6 +194,9 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         txtDateAvailable.addUnderline()
         txtAmountPrice.addUnderline()
         
+        setCurrentDate()
+        
+        
         
         pickerViewDate = UIAlertController(title: "Date Availabe", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
         theDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 44, width: 0, height: 0))
@@ -169,6 +212,14 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         pickerViewDate?.view.addSubview(theDatePicker!)
         pickerViewDate?.view.bounds = CGRect(x: 0, y: 0, width: 320, height: 264)
         txtDateAvailable.inputView = pickerViewDate?.view
+    }
+    
+    func setCurrentDate()
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDateString = dateFormatter.string(from: Date())
+        txtDateAvailable.text = currentDateString
     }
     
     // MARK - Date Picker Delegate , Methods
@@ -475,11 +526,11 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
                     self.uploadDocumentWithPropertyId(property_id, pdfURL!)
                 }
                 else {
-                    self.resetFields()
-                    CircularSpinner.hide()
-                    let alert = UIAlertController(title: "QuantumListing", message: "Successfully Uploaded", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.onUploadingDone(property_id: property_id)
+ //                   CircularSpinner.hide()
+//                    let alert = UIAlertController(title: "QuantumListing", message: "Successfully Uploaded", preferredStyle: UIAlertControllerStyle.alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
                 }
                 
             }catch{
@@ -516,11 +567,11 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary
                 if (responseJson["result"] as! NSArray).object(at: 0) as! Int == 1 {
-                    self.resetFields()
-                    CircularSpinner.hide()
-                    let alert = UIAlertController(title: "QuantumListing", message: "Successfully Uploaded", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.onUploadingDone(property_id: property_id)
+//                    CircularSpinner.hide()
+//                    let alert = UIAlertController(title: "QuantumListing", message: "Successfully Uploaded", preferredStyle: UIAlertControllerStyle.alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
                 }
                 
             }catch{
@@ -711,12 +762,13 @@ class ListingViewController: UIViewController ,UITextFieldDelegate, UITextViewDe
         
         if indexPath.row < selectedImages.count
         {
-            plusLabel.isHidden = true
+            plusLabel.text = "\(indexPath.row + 1)"
+            plusLabel.isHidden = false
             imageView.image = selectedImages[indexPath.row]
         }
         else
         {
-            plusLabel.isHidden = false
+            plusLabel.isHidden = true
             imageView.addDashedBorderLayerWithColor(color: Utilities.registerBorderColor.cgColor)
             imageView.image = UIImage()
         }

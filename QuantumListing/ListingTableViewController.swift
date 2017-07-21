@@ -176,7 +176,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
             cell.listing_website = listing_user["website"] as? String
             let strUser = listing_user["username"] as? String
             if (strUser != nil) {
-                //cell.lblUser.text = strUser
+                cell.lblUsername.text = strUser
             }
             let strAvartar = listing_user["profile_pic"] as? String
             if strAvartar != nil {
@@ -187,6 +187,8 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
                 cell.ivPortrait.isHidden = true
             }
         }
+        
+        
         
         let listing_property = listing["property_info"] as! NSDictionary
         if(true) {
@@ -207,7 +209,7 @@ class ListingTableViewController: UITableViewController, ListingCellDelegate, CL
         //let temp = listing["time_elapsed"] as! String
         //cell.lblDate.text = "\(temp)              days"
         cell.lblRentPSF?.text = "$\(listing_property["amount"] as! String)"
-        cell.lblSQFT.text = "\(listing_property["sqft"] as! String) SQFT"
+        cell.lblSQFT.text = "\(listing_property["sqft"] as! String)"
         cell.lblAssetType.text = listing_property["property_type"] as? String
         
         cell.buttonAddress.setTitle("   \(listing_property["address"] as! String)", for: UIControlState.normal)

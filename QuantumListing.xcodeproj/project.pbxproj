@@ -1005,7 +1005,6 @@
 				B3E7B8261E82A62500E9E471 /* Listing */,
 				B3E7B82A1E82A67800E9E471 /* Search */,
 				B3E7B8271E82A64700E9E471 /* MyListings */,
-				B3E7B8281E82A65800E9E471 /* Profile */,
 				B3D9BE031E8178FE00EC6FCE /* TabBarViewController.swift */,
 				B3279F4B1E85CD97003BEB87 /* ConnectionManager.swift */,
 			);
@@ -1066,6 +1065,7 @@
 		B32317C21E805362005BE6E2 /* QuantumListingTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3E7B8281E82A65800E9E471 /* Profile */,
 				B32317C31E805362005BE6E2 /* QuantumListingTests.swift */,
 				B32317C51E805362005BE6E2 /* Info.plist */,
 			);
@@ -1253,6 +1253,7 @@
 				5308ECC11ED98F650019A519 /* FollowUserTableViewController.swift */,
 			);
 			name = Profile;
+			path = ../QuantumListing;
 			sourceTree = "<group>";
 		};
 		B3E7B8291E82A67300E9E471 /* Feed */ = {

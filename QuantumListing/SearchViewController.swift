@@ -365,7 +365,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     }
     
     func searchByKeyword(_ keyword: String) {
-        let parameters: NSMutableDictionary = ["keyword": keyword]
+        let parameters: NSMutableDictionary = ["user_id": (delegate?.user?.user_id)!, "keyword": keyword]
         
         CircularSpinner.show("Loading", animated: true, type: .indeterminate, showDismissButton: false)
         ConnectionManager.sharedClient().get("\(BASE_URL)?apiEntry=search_by_keyword", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
@@ -385,8 +385,9 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     let dict = object as! NSDictionary
                     if dict["user_info"] as? NSDictionary != nil && dict["property_info"] as? NSDictionary != nil
                     {
-                        self.listing_list?.add(dict)
-                        self.raw_searches?.add(dict)
+                        let mutableDict = NSMutableDictionary(dictionary : dict)
+                        self.listing_list?.add(mutableDict)
+                        self.raw_searches?.add(mutableDict)
                     }
                 }
                 //self.listing_list = NSMutableArray(array: responseJson)
@@ -477,7 +478,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
     
     func searchByLocation(_ placemark: CLPlacemark) {
         let coordinate = placemark.location?.coordinate
-        let parameters: Parameters = ["latitude": String(format: "%f", (coordinate?.latitude)!), "longitude": String(format: "%f", (coordinate?.longitude)!)]
+        let parameters: Parameters = ["user_id": (delegate?.user?.user_id)!, "latitude": String(format: "%f", (coordinate?.latitude)!), "longitude": String(format: "%f", (coordinate?.longitude)!)]
         
         //let parameters : Parameters = ["latitude" : 40.73, "longitude" : -74.0059]
 
@@ -504,23 +505,30 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     break
                 }
                 
+                self.listing_list?.removeAllObjects()
                 
                 
                 let data = response.result.value as! [[String:Any]]
                 print(data.description)
                 
-                self.listing_list = NSMutableArray(array: data)
+                let list = NSMutableArray(array: data)
+                for listing1:Any in list
+                {
+                    self.listing_list?.add(NSMutableDictionary(dictionary : listing1 as! NSDictionary  ))
+                }
+                
+                //self.listing_list = NSMutableArray(array: data)
                 
                 var dirtyListing : [Any] = [Any]()
                 
                 for listing1:Any in self.listing_list! {
     
-                    let listing = listing1 as! NSDictionary
+                    let listing = listing1 as! NSMutableDictionary
                     
                     if listing["user_info"] as? NSDictionary == nil  //wrong user info , ignore 
                         || listing["property_info"] as? NSDictionary == nil  //wrong property info , ignore
                     {
-                        dirtyListing.append(listing1)
+                        dirtyListing.append(listing)
                         continue
                     }
                     
@@ -908,6 +916,15 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         lblAssetType.text = property_info["property_type"]
         lblPrice.text = "$\(property_info["amount"]!)"
         
+        if listing["isFavorite"] as! Int == 0
+        {
+            btnFavorite.setImage(UIImage(named: "flag@4x"), for: .normal)
+        }
+        else
+        {
+            btnFavorite.setImage(UIImage(named: "flag_fill@4x"), for: .normal)
+        }
+        
         ivListing.setIndicatorStyle(.gray)
         ivListing.setShowActivityIndicator(true)
         ivListing.sd_setImage(with: URL(string: property_image["property_image"]!)!)
@@ -939,7 +956,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         }
     }
     @IBAction func actFavorite(_ sender: Any) {
-        let listing = listing_list?[currentIndex] as! NSDictionary
+        let listing = listing_list?[currentIndex] as! NSMutableDictionary
         let listing_property = listing["property_info"] as! NSDictionary
         
         let parameters: NSMutableDictionary = ["property_id": listing_property["property_id"] as! String, "user_id": (delegate?.user?.user_id)!]
@@ -952,6 +969,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                 print(responseJson)
                 let status = responseJson["status"] as! Int
                 
+                listing["isFavorite"] = status
                 if status == 0
                 {
                     self.btnFavorite.setImage(UIImage(named: "flag@4x"), for: .normal)

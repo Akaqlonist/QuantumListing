@@ -77,7 +77,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     @IBOutlet weak var btnGlobe: UIButton!
     @IBOutlet weak var btnSkype: UIButton!
     
-    @IBOutlet weak var viewWatchVideo: UIView!
     @IBOutlet weak var collectionThumbnail: UICollectionView!
     
     
@@ -189,6 +188,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             }
         }
         
+        let watchVideoAction = UIAlertAction(title: "Watch Video", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
+            self.actPlayVideo()
+        }
+        
         let favAction = UIAlertAction(title: "Save to Favorites", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
             
             if self.isValidMembership() {
@@ -213,6 +216,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         //actionSheet.addAction(viewAction)
         actionSheet.addAction(galleryAction)
         actionSheet.addAction(attachAction)
+        actionSheet.addAction(watchVideoAction)
         actionSheet.addAction(favAction)
         actionSheet.addAction(flagAction)
         actionSheet.addAction(cancelAction)
@@ -322,6 +326,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
 //        vwPortrait.layer.cornerRadius = vwPortrait.bounds.width/2.0
 //        vwPortrait.layer.masksToBounds = false
     }
@@ -444,8 +449,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
             }
         }
         
-        viewWatchVideo.layer.borderWidth = 0.5
-        viewWatchVideo.layer.borderColor = Utilities.borderGrayColor.cgColor
         
         if scrollViewShouldMoveUp == true
         {
@@ -832,7 +835,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         }
 
     }
-    @IBAction func actPlayVideo(_ sender: Any) {
+    
+    func actPlayVideo() {
+        
     }
 
 }
