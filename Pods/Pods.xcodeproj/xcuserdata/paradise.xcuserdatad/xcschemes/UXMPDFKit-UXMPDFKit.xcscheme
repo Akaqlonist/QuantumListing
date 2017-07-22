@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BDFDF1D3F65BCA400D3BE99627C993FA'
+               BlueprintIdentifier = '080BE1CFAE89A9FE85F4B5AE1FF79E17'
                BlueprintName = 'UXMPDFKit-UXMPDFKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'UXMPDFKit.bundle'>

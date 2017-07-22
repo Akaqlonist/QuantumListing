@@ -144,9 +144,24 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>XExtensionItem.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>026AE547008157FBB17F427A9EB1FDBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>080BE1CFAE89A9FE85F4B5AE1FF79E17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>10F0C3C80828CC88CE8154B17E6E0B8F</key>
 		<dict>
 			<key>primary</key>
@@ -182,22 +197,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62F77F592D8ED7F54162237F958B3D4F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6908E95B717357E6DAC1FA9C8D8C851C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7335E9C9689F3B8A16F063A884748533</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7E711B5050A11165704EE22B01BEFCD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,12 +227,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D5ECB3A383E95E1A060C7AEB424C4C9</key>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<key>A17676B3EB8E5AB6DCC29586C0CBD2EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,7 +247,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDFDF1D3F65BCA400D3BE99627C993FA</key>
+		<key>B9656EC676704BBAE38E66D7AD8258BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -268,6 +273,11 @@
 			<true/>
 		</dict>
 		<key>D94D29227595070DCBD6415345D1434D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D99DAF26ACB9E87C720A97A3DD47C885</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -72,6 +72,12 @@ PODS:
     - TwitterCore (>= 2.8)
   - UXMPDFKit (0.6.4)
   - XCDYouTubeKit (2.5.5)
+  - XExtensionItem (0.9.3):
+    - XExtensionItem/Core (= 0.9.3)
+    - XExtensionItem/Tumblr (= 0.9.3)
+  - XExtensionItem/Core (0.9.3)
+  - XExtensionItem/Tumblr (0.9.3):
+    - XExtensionItem/Core
 
 DEPENDENCIES:
   - AFNetworking
@@ -96,6 +102,7 @@ DEPENDENCIES:
   - TwitterKit
   - UXMPDFKit
   - XCDYouTubeKit
+  - XExtensionItem
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -126,7 +133,8 @@ SPEC CHECKSUMS:
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
   UXMPDFKit: 7a905716ba5682d41e80f97c80ffd2110d400abb
   XCDYouTubeKit: 86f4e7a9c2baa7b7adf6abfc28ac3ab34927be2d
+  XExtensionItem: ce626520bbca225930b9c8e2283b226df431af3f
 
-PODFILE CHECKSUM: 5ae35da0077a7c976fa5bf19e2be2d471d9bdab1
+PODFILE CHECKSUM: adc92846247498b6e7e47fe64567b2014051dfa5
 
 COCOAPODS: 1.2.1

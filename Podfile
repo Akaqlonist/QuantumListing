@@ -25,4 +25,5 @@ target 'QuantumListing' do
     pod 'JVFloatLabeledTextField'
     pod 'IQKeyboardManager'
     pod 'XCDYouTubeKit'
+    pod 'XExtensionItem'
 end

@@ -14,6 +14,7 @@ import AFNetworking
 import Alamofire
 import UXMPDFKit
 
+
 class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UICollectionViewDataSource{
 
     var lastDistance : CGFloat = 0.0
@@ -108,10 +109,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         //let txtToShare = "Visit QuantumListing.com for more information on this listing"
         let capturedImage = snapshot()
+    
+        //let objectsToShare = [UIImageJPEGRepresentation(capturedImage!, 0.6)] as [Any]
+        //let objectsToShare = [self.listing_property?["property_name"] as! String, URL(string: "https://quantumlisting.com/single-property/\(self.listing_property?["property_id"] as! String)/")!, (visibleCell.viewWithTag(1) as! UIImageView).image! ] as [Any]
+        let objectsToShare = ["Title : \(self.listing_property?["property_name"] as! String)\n\nhttps://quantumlisting.com/single-property/\(self.listing_property?["property_id"] as! String)", (visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
+
         
-        let objectsToShare = [capturedImage] as [Any]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        
 
         self.navigationController?.present(activityVC, animated: true, completion: nil)
 
@@ -882,7 +886,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     func snapshot() -> UIImage?
     {
-        UIGraphicsBeginImageContext(scrollView.contentSize)
+        //UIGraphicsBeginImageContext(scrollView.contentSize)
+        UIGraphicsBeginImageContextWithOptions(scrollView.contentSize,  scrollView.isOpaque, 0.0)
         
         let savedContentOffset = scrollView.contentOffset
         let savedFrame = scrollView.frame;
