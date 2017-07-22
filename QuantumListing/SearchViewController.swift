@@ -566,6 +566,27 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
                     self.listing_list?.remove(dirtyItem)
                 }
                 
+                //sort by distnace
+                self.listing_list?.sort(comparator: {
+                    (item1, item2) in
+                    let property1 = ((item1 as! NSDictionary)["property_info"] as! NSDictionary)
+                    let property2 = ((item2 as! NSDictionary)["property_info"] as! NSDictionary)
+                    let location1 = CLLocation(latitude: CLLocationDegrees((property1["latitude"] as! NSString).floatValue), longitude: CLLocationDegrees((property1["lognitude"] as! NSString).floatValue))
+                    let location2 = CLLocation(latitude: CLLocationDegrees((property2["latitude"] as! NSString).floatValue), longitude: CLLocationDegrees((property2["lognitude"] as! NSString).floatValue))
+                    let distance1 = placemark.location?.distance(from: location1)
+                    let distance2 = placemark.location?.distance(from: location2)
+                    
+                    if distance1! > distance2!
+                    {
+                        return ComparisonResult.orderedDescending
+                    }
+                    else
+                    {
+                        return ComparisonResult.orderedAscending
+                    }
+                })
+                //
+                
                 self.raw_searches = NSMutableArray(array: self.listing_list!)
                 
                 self.applyFilter()

@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuantumListing/SearchViewController.swift"
-            timestampString = "522341229.404268"
+            timestampString = "522440303.409798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "912"
-            endingLineNumber = "912"
+            startingLineNumber = "933"
+            endingLineNumber = "933"
             landmarkName = "setupCardView(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuantumListing/SearchViewController.swift"
-            timestampString = "522341229.404268"
+            timestampString = "522440303.409798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
             landmarkName = "searchByLocation(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuantumListing/SearchViewController.swift"
-            timestampString = "522368490.709423"
+            timestampString = "522440303.409798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "973"
-            endingLineNumber = "973"
+            startingLineNumber = "994"
+            endingLineNumber = "994"
             landmarkName = "actFavorite(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -560,6 +560,22 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "actShare(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuantumListing/SearchViewController.swift"
+            timestampString = "522439565.26244"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
+            landmarkName = "searchByLocation(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -112,7 +112,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
         //let objectsToShare = [UIImageJPEGRepresentation(capturedImage!, 0.6)] as [Any]
         //let objectsToShare = [self.listing_property?["property_name"] as! String, URL(string: "https://quantumlisting.com/single-property/\(self.listing_property?["property_id"] as! String)/")!, (visibleCell.viewWithTag(1) as! UIImageView).image! ] as [Any]
-        let objectsToShare = ["Title : \(self.listing_property?["property_name"] as! String)\n\nhttps://quantumlisting.com/single-property/\(self.listing_property?["property_id"] as! String)", (visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
+        let objectsToShare = ["\(self.listing_property?["property_name"] as! String)\n\nhttps://quantumlisting.com/single-property/\(self.listing_property?["property_id"] as! String)", (visibleCell.viewWithTag(1) as! UIImageView).image!] as [Any]
 
         
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
