@@ -428,7 +428,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
 //            labelType.text = "For Sale"
 //        }
 
-        btnAddress.setTitle(listing_property?["address"] as? String, for: .normal)
+        btnAddress.setTitle("   \(listing_property?["address"] as! String)", for: .normal)
         
         buttonScroll.layer.cornerRadius = buttonScroll.frame.size.height / 2
         buttonScroll.layer.masksToBounds = true
