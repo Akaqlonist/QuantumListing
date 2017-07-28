@@ -3944,12 +3944,12 @@ The effective date of these Terms of Use is September 16, 2013. These Terms of U
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1650"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="760" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmn-an-8cB">
-                                                <rect key="frame" x="20" y="15" width="80" height="20"/>
+                                                <rect key="frame" x="20" y="15" width="24" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="IXt-lc-uKS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <state key="normal" title="    0 View" image="eye_icon@4x">
+                                                <state key="normal" image="eye_icon@4x">
                                                     <color key="titleColor" red="0.16078431369999999" green="0.25882352939999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>

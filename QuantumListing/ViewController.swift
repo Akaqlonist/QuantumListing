@@ -246,7 +246,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(newimage, for: UIBarMetrics.default)
         
     }
-
+    
     func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage {
         let newSize = CGSize(width: newWidth, height: newHeight)
         UIGraphicsBeginImageContext(newSize)

@@ -248,6 +248,68 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         delegate = UIApplication.shared.delegate as? AppDelegate
         
         getGalleryList()
+        
+        getVisitCount(completionHandler: {
+            self.logVisitEvent()
+        })
+        
+    }
+    
+    func logVisitEvent()
+    {
+        let parameters = ["property_id" : self.listing_property!["property_id"] as! String]
+        
+        ConnectionManager.sharedClient().post("\(BASE_URL)?apiEntry=logEvent", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary
+                
+                print(responseJson)
+                
+            }catch{
+                
+            }
+            
+        }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
+            print("Error: \(String(describing: error))")
+            
+            let alert = UIAlertController(title: "QuantumListing", message: "Connection failed with reason : \(error.debugDescription)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func getVisitCount(completionHandler : @escaping ()->Void)
+    {
+        //log page view event
+        let parameters = ["property_id" : self.listing_property!["property_id"] as! String]
+        
+        ConnectionManager.sharedClient().post("\(BASE_URL)?apiEntry=getGA", parameters: parameters, progress: nil, success: {(_ task: URLSessionTask?, _ responseObject: Any) -> Void in
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! NSDictionary
+                
+                let result = responseJson["totalsForAllResults"] as? NSDictionary
+                let viewCount = result?.value(forKey: "ga:pageviews")
+                
+                if viewCount != nil
+                {
+                    var title = "    "
+                    self.btnViews.setTitle(title + (viewCount as! String) + " View", for: .normal)
+                }
+                
+                
+            }catch{
+                
+            }
+            
+            completionHandler()
+            
+        }, failure: {(_ operation: URLSessionTask?, _ error: Error?) -> Void in
+            print("Error: \(String(describing: error))")
+            
+            let alert = UIAlertController(title: "QuantumListing", message: "Connection failed with reason : \(error.debugDescription)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     func getGalleryList()
