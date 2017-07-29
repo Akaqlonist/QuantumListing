@@ -293,7 +293,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
                 if viewCount != nil
                 {
                     var title = "    "
-                    self.btnViews.setTitle(title + (viewCount as! String) + " View", for: .normal)
+                    self.btnViews.setTitle(title + (viewCount as! String) + " View(s)", for: .normal)
                 }
                 
                 
