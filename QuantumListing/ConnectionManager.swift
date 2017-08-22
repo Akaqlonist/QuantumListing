@@ -9,7 +9,7 @@
 import Foundation
 import AFNetworking
 
-let BASE_URL = "http://quantumlisting.com/api.php"
+let BASE_URL = "https://quantumlisting.com/api.php"
 let SECURE_BASE_URL = "https://quantumlisting.com/api.php"
 
 private var _sharedClient : ConnectionManager? = nil
@@ -20,6 +20,7 @@ class ConnectionManager : AFHTTPSessionManager{
         if _sharedClient == nil
         {
             _sharedClient = ConnectionManager()
+            _sharedClient?.securityPolicy.validatesDomainName = false
             _sharedClient?.securityPolicy.allowInvalidCertificates = true
             _sharedClient?.requestSerializer.timeoutInterval = 120
             _sharedClient?.responseSerializer = AFHTTPResponseSerializer()
