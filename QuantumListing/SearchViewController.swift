@@ -489,7 +489,7 @@ class SearchViewController: UIViewController ,UITableViewDelegate, UITableViewDa
         //replaced by alamofire
         
         
-        Alamofire.request("http://quantumlisting.com/api.php?apiEntry=search_by_location", method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON(completionHandler: { response in
+        Alamofire.request("https://quantumlisting.com/api.php?apiEntry=search_by_location", method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON(completionHandler: { response in
             
             switch response.result
             {

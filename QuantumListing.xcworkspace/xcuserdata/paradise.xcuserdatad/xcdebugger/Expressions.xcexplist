@@ -11,10 +11,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ListingTableViewController.favorite_property(index : Int) -&gt; ():ListingTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ListingTableViewController.(favorite_property(index : Int) -&gt; ()).(closure #1):ListingTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parameters">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UIImage.init(view : UIView, scrollView : UIScrollView) -&gt; UIImage:DetailViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "scrollView.contentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewController.(searchByLocation(CLPlacemark) -&gt; ()).(closure #1):SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "listing1 as! NSDictionary">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

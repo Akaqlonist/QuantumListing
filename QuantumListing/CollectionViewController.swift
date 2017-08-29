@@ -73,6 +73,9 @@ class CollectionViewController: UIViewController ,UICollectionViewDelegate, UICo
             }
             
             do {
+                print(String(data: responseObject as! Data, encoding: .utf8))
+                
+                
                 let responseJson = try JSONSerialization.jsonObject(with: responseObject as! Data, options: []) as! [Any]
                 print(responseJson)
                 
